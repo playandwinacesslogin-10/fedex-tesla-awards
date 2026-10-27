@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPIN &amp; WIN — המזל שלך. הרגע שלך.</title>
+  <meta name="description" content="SPIN & WIN — גלגל פרסים אינטראקטיבי פרימיום. לחצו על מרכז הגלגל כדי לסובב ולחשוף את התוצאה שלכם. זכו בפרס גרנד בשווי עד ₪200,000. 3 סיבובים חינם. ללא התחברות, ללא הפקדה." />
+  <meta name="keywords" content="SPIN & WIN, גלגל פרסים, סובב את הגלגל, פרסים בשקלים, פרסים ישראלים, סיבובים חינם, ג'קפוט ₪200,000" />
+  <meta property="og:title" content="SPIN & WIN — המזל שלך. הרגע שלך." />
+  <meta property="og:description" content="לחצו על מרכז הגלגל כדי לסובב. זכו בג'קפוט גרנד בשווי עד ₪200,000. 3 סיבובים חינם, ללא התחברות, ללא הפקדה." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SPIN & WIN" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* === RESET === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Heebo', system-ui, -apple-system, sans-serif;
+      background: #0b0d1a;
+      color: #f5f5f7;
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(60rem 60rem at 80% -10%, rgba(0,56,184,0.18), transparent 60%),
+        radial-gradient(50rem 50rem at -10% 30%, rgba(212,160,23,0.10), transparent 55%),
+        radial-gradient(60rem 60rem at 50% 110%, rgba(30,77,196,0.10), transparent 60%);
+      background-attachment: fixed;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Frank Ruhl Libre', 'Heebo', serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    img, svg { display: block; max-width: 100%; }
+    :focus-visible { outline: 2px solid #d4a017; outline-offset: 2px; border-radius: 6px; }
+    ::selection { background: rgba(0,56,184,0.40); color: #fff; }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: #0b0d1a; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #1e4dc4, #0038b8); border-radius: 999px; border: 2px solid #0b0d1a; }
+    ::-webkit-scrollbar-thumb:hover { background: #2e5dd4; }
+
+    /* === TOKENS === */
+    :root {
+      --bg: #0b0d1a;
+      --bg-card: rgba(20, 22, 38, 0.7);
+      --bg-card-solid: #14162a;
+      --fg: #f5f5f7;
+      --muted: #8a8fa3;
+      --gold: #d4a017;
+      --gold-bright: #ffe7a8;
+      --gold-dark: #8a5a00;
+      --gold-deep: #5a3a00;
+      --blue: #0038b8;
+      --blue-bright: #1e4dc4;
+      --blue-light: #4a9bd6;
+      --emerald: #1bb78a;
+      --purple: #a86bff;
+      --magenta: #c33aa8;
+      --border: rgba(255,255,255,0.08);
+      --border-gold: rgba(212,160,23,0.30);
+      --border-gold-strong: rgba(212,160,23,0.50);
+      --radius: 0.875rem;
+    }
+
+    /* === UTILITIES === */
+    .container { max-width: 80rem; margin: 0 auto; padding-inline: 1rem; }
+    @media (min-width: 640px) { .container { padding-inline: 1.5rem; } }
+    @media (min-width: 1024px) { .container { padding-inline: 2rem; } }
+
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #ffe7a8 0%, #d4a017 50%, #b8860b 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .text-blue-gradient {
+      background: linear-gradient(135deg, #4a9bd6 0%, #0038b8 50%, #002a8f 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .glow-gold { box-shadow: 0 0 0 1px rgba(212,160,23,0.30), 0 0 30px -5px rgba(212,160,23,0.50), 0 0 80px -20px rgba(212,160,23,0.35); }
+    .text-balance { text-wrap: balance; }
+    .text-pretty { text-wrap: pretty; }
+    .tracking-wide { letter-spacing: 0.025em; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+    /* === ANIMATIONS === */
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+    @keyframes flag-wave { 0%,100% { transform: perspective(600px) rotateY(0deg) skewY(0deg); } 50% { transform: perspective(600px) rotateY(-8deg) skewY(-1.5deg); } }
+    @keyframes pulse-glow { 0%,100% { opacity: 0.55; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
+    @keyframes pulse-blue-glow {
+      0%,100% { box-shadow: 0 0 0 1px rgba(0,56,184,0.4), 0 0 20px -5px rgba(0,56,184,0.55), 0 0 60px -20px rgba(0,56,184,0.4); }
+      50% { box-shadow: 0 0 0 2px rgba(212,160,23,0.6), 0 0 35px -5px rgba(212,160,23,0.65), 0 0 90px -15px rgba(0,56,184,0.55); }
+    }
+    @keyframes rise-fade { 0% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes loader-spin { to { transform: rotate(360deg); } }
+    @keyframes ping { 75%, 100% { transform: scale(2); opacity: 0; } }
+    @keyframes confetti-fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+
+    .flag-wave { transform-origin: center; animation: flag-wave 5s ease-in-out infinite; }
+    .animate-pulse-glow { animation: pulse-glow 2.8s ease-in-out infinite; }
+    .animate-pulse-blue-glow { animation: pulse-blue-glow 3.2s ease-in-out infinite; }
+    .animate-rise { animation: rise-fade 0.5s ease-out both; }
+
+    /* === HEADER === */
+    .site-header {
+      position: sticky; top: 0; z-index: 40;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .site-header.scrolled {
+      background: rgba(11,13,26,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom-color: var(--border);
+    }
+    .header-inner {
+      max-width: 80rem; margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    @media (min-width: 640px) { .header-inner { padding-inline: 1.5rem; } }
+    @media (min-width: 1024px) { .header-inner { padding-inline: 2rem; } }
+    .logo-link { display: flex; align-items: center; gap: 0.75rem; }
+    .flag-badge {
+      height: 1.75rem; width: 2.5rem; overflow: hidden; border-radius: 0.25rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .brand-mark {
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .brand-icon {
+      width: 2.25rem; height: 2.25rem; display: flex; align-items: center; justify-content: center;
+      border-radius: 0.75rem;
+      background: linear-gradient(135deg, #ffe7a8, #d4a017 50%, #7a4a00);
+      box-shadow: 0 0 18px -2px rgba(212,160,23,0.6);
+    }
+    .brand-name { font-family: 'Frank Ruhl Libre', serif; font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1; }
+    .brand-sub { font-size: 9px; text-transform: uppercase; letter-spacing: 0.25em; color: var(--muted); }
+
+    .desktop-nav { display: none; gap: 0.25rem; }
+    @media (min-width: 768px) { .desktop-nav { display: flex; } }
+    .nav-link {
+      padding: 0.375rem 0.875rem; border-radius: 999px;
+      font-size: 0.875rem; font-weight: 500; color: var(--muted);
+      transition: all 0.2s;
+    }
+    .nav-link:hover { background: rgba(0,56,184,0.15); color: var(--fg); }
+
+    .cta-spin {
+      display: none;
+      padding: 0.5rem 1.25rem; border-radius: 999px;
+      background: linear-gradient(180deg, #ffe7a8, #d4a017 50%, #8a5a00);
+      color: #1a0f00; font-size: 0.875rem; font-weight: 700;
+      transition: transform 0.2s;
+    }
+    .cta-spin:hover { transform: translateY(-2px); }
+    @media (min-width: 640px) { .cta-spin { display: inline-flex; } }
+
+    .menu-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.5rem; border-radius: 999px;
+      border: 1px solid var(--border); background: rgba(20,22,38,0.6);
+    }
+    @media (min-width: 768px) { .menu-btn { display: none; } }
+
+    /* === MOBILE MENU === */
+    .mobile-menu-overlay {
+      position: fixed; inset: 0; z-index: 50;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .mobile-menu-overlay.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu {
+      position: fixed; inset-block: 0; inset-inline-start: 0; z-index: 50;
+      width: 80%; max-width: 20rem; padding: 1.5rem;
+      background: var(--bg); border-inline-end: 1px solid var(--border);
+      transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+      overflow-y: auto;
+    }
+    [dir="rtl"] .mobile-menu { transform: translateX(-100%); }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+    .mobile-menu-title { display: flex; align-items: center; gap: 0.5rem; font-family: 'Frank Ruhl Libre', serif; font-size: 1.125rem; font-weight: 700; }
+    .mobile-menu-close { padding: 0.375rem; border-radius: 999px; border: 1px solid var(--border); }
+    .mobile-nav { display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 1.5rem; }
+    .mobile-nav a { padding: 0.75rem 1rem; border-radius: 0.75rem; font-size: 1rem; font-weight: 500; transition: background 0.2s; }
+    .mobile-nav a:hover { background: rgba(0,56,184,0.15); }
+    .mobile-cta {
+      display: block; padding: 0.75rem 1.25rem; border-radius: 999px; text-align: center;
+      background: linear-gradient(180deg, #ffe7a8, #d4a017 50%, #8a5a00);
+      color: #1a0f00; font-size: 0.875rem; font-weight: 700;
+    }
+
+    /* === HERO === */
+    .hero {
+      position: relative; max-width: 80rem; margin: 0 auto;
+      padding: 2.5rem 1rem 4rem;
+    }
+    @media (min-width: 640px) { .hero { padding-inline: 1.5rem; } }
+    @media (min-width: 1024px) { .hero { padding-top: 4rem; padding-inline: 2rem; } }
+    .hero-grid {
+      display: grid; gap: 3rem; align-items: center;
+    }
+    @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1.05fr 0.95fr; } }
+
+    .hero-flag-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+    .hero-flag {
+      height: 3.5rem; width: 5rem; overflow: hidden; border-radius: 0.375rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .hero-flag-text { font-size: 0.75rem; line-height: 1.3; color: var(--muted); }
+    .hero-flag-text strong { color: var(--fg); font-weight: 600; letter-spacing: 0.025em; display: block; }
+
+    .status-chip {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.25rem 0.75rem; border-radius: 999px;
+      border: 1px solid var(--border-gold); background: rgba(212,160,23,0.05);
+      font-size: 0.75rem; font-weight: 500; color: var(--gold); margin-bottom: 1.25rem;
+    }
+    .ping-dot { position: relative; display: inline-flex; height: 6px; width: 6px; }
+    .ping-dot::before {
+      content: ''; position: absolute; inset: 0; border-radius: 999px;
+      background: var(--gold); animation: ping 1.5s cubic-bezier(0,0,0.2,1) infinite;
+    }
+    .ping-dot::after { content: ''; position: relative; display: inline-flex; height: 6px; width: 6px; border-radius: 999px; background: var(--gold); }
+
+    .hero h1 {
+      font-size: 3rem; font-weight: 700; line-height: 0.95; letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+    @media (min-width: 640px) { .hero h1 { font-size: 3.75rem; } }
+    @media (min-width: 1024px) { .hero h1 { font-size: 4.5rem; } }
+
+    .hero-slogan {
+      margin-top: 1rem; font-family: 'Frank Ruhl Libre', serif;
+      font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em;
+    }
+    @media (min-width: 640px) { .hero-slogan { font-size: 1.5rem; } }
+    .hero-sub { margin-top: 0.25rem; font-size: 0.875rem; color: var(--muted); }
+    @media (min-width: 640px) { .hero-sub { font-size: 1rem; } }
+
+    .jackpot-card {
+      margin-top: 1.5rem; max-width: 28rem;
+      padding: 1.25rem; border-radius: 1rem;
+      border: 1px solid var(--border-gold-strong);
+      background: linear-gradient(135deg, rgba(212,160,23,0.15), transparent 50%, rgba(30,77,196,0.10));
+      box-shadow: 0 0 30px -5px rgba(212,160,23,0.35);
+    }
+    .jackpot-label { font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: var(--gold); }
+    .jackpot-amount { display: flex; align-items: baseline; gap: 0.5rem; margin-top: 0.25rem; }
+    .jackpot-amount .shekel { font-size: 1.5rem; color: var(--muted); }
+    .jackpot-amount .amount { font-family: 'Frank Ruhl Libre', serif; font-size: 3rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .jackpot-desc { margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted); text-wrap: pretty; }
+
+    .prize-preview-row {
+      margin-top: 1.25rem; max-width: 28rem;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;
+    }
+    .prize-preview {
+      padding: 0.75rem; border-radius: 0.75rem;
+      border: 1px solid var(--border); background: rgba(20,22,38,0.4);
+      text-align: center;
+    }
+    .prize-preview .label { font-size: 9px; font-weight: 600; letter-spacing: 0.025em; color: var(--muted); }
+    .prize-preview .amount { margin-top: 0.125rem; font-family: 'Frank Ruhl Libre', serif; font-size: 1rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+    .hero-cta-row { margin-top: 1.75rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.5rem; border-radius: 999px;
+      background: linear-gradient(180deg, #ffe7a8, #d4a017 50%, #8a5a00);
+      color: #1a0f00; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.025em;
+      transition: transform 0.2s;
+      box-shadow: 0 0 30px -5px rgba(212,160,23,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.25rem; border-radius: 999px;
+      border: 1px solid var(--border); background: rgba(20,22,38,0.6);
+      color: var(--fg); font-size: 0.875rem; font-weight: 500;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(0,56,184,0.15); }
+
+    .hero-foot { margin-top: 1.25rem; font-size: 0.75rem; color: var(--muted); }
+
+    /* === WHEEL === */
+    .wheel-wrap { display: flex; justify-content: center; }
+    @media (min-width: 1024px) { .wheel-wrap { justify-content: flex-start; } }
+    .wheel-container {
+      position: relative; display: flex; flex-direction: column; align-items: center;
+    }
+    .wheel-glow {
+      position: absolute; inset: 0; z-index: -1;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none;
+    }
+    .wheel-glow::before {
+      content: ''; width: 460px; height: 460px; border-radius: 999px;
+      background: radial-gradient(closest-side, rgba(212,160,23,0.22), rgba(0,56,184,0.18), transparent 70%);
+      filter: blur(20px);
+      animation: pulse-glow 2.8s ease-in-out infinite;
+    }
+    .wheel-arena { position: relative; }
+    .wheel-pointer {
+      position: absolute; left: 50%; top: -8px; z-index: 20;
+      transform: translateX(-50%);
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+    }
+    .wheel-svg {
+      width: 440px; height: 440px; max-width: 90vw; max-height: 90vw;
+      filter: drop-shadow(0 30px 60px rgba(0,0,0,0.55));
+      transition: transform 5.4s cubic-bezier(0.17, 0.67, 0.16, 0.99);
+      will-change: transform;
+    }
+    .center-button {
+      position: absolute; left: 50%; top: 50%; z-index: 30;
+      transform: translate(-50%, -50%);
+      width: 112px; height: 112px;
+      border-radius: 999px; padding: 0;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .center-button:not(:disabled) { cursor: pointer; }
+    .center-button:not(:disabled):hover { transform: translate(-50%, -50%) scale(1.05); }
+    .center-button:not(:disabled):active { transform: translate(-50%, -50%) scale(0.95); }
+    .center-button:disabled { cursor: not-allowed; }
+    .center-button.idle:not(:disabled) { animation: pulse-blue-glow 3.2s ease-in-out infinite; }
+    .center-glow-ring {
+      position: absolute; inset: 0; border-radius: 999px;
+      background: radial-gradient(closest-side, transparent 60%, rgba(212,160,23,0.30) 75%, transparent 100%);
+    }
+    .center-disc {
+      position: relative; width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 999px; border: 2px solid #1a0f00;
+      background: radial-gradient(circle at 35% 30%, #fff5d2 0%, #ffe7a8 18%, #d4a017 45%, #8a5a00 85%, #5a3a00 100%);
+      box-shadow: inset 0 2px 6px rgba(255,255,255,0.6), inset 0 -4px 10px rgba(0,0,0,0.4), 0 0 24px -2px rgba(212,160,23,0.55);
+    }
+    .center-blue-ring {
+      position: absolute; inset: 10px; border-radius: 999px;
+      border: 1px solid rgba(0,56,184,0.55);
+    }
+    .center-text-wrap { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+    .center-text-tap { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; color: #5a3a00; }
+    .center-text-spin { font-family: 'Frank Ruhl Libre', serif; font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; color: #1a0f00; }
+    .center-text-busy { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; color: #3a1f00; }
+    .center-text-empty { padding: 0 0.5rem; text-align: center; font-size: 11px; font-weight: 700; line-height: 1.2; color: #3a1f00; }
+    .loader-ring { width: 28px; height: 28px; }
+    .loader-ring circle { transform-origin: center; }
+    .loader-ring .spin-part { animation: loader-spin 0.9s linear infinite; }
+
+    .spins-badge-wrap { margin-top: 1.75rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .spins-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.375rem 1rem; border-radius: 999px;
+      font-size: 0.75rem; font-weight: 600;
+    }
+    .spins-badge.has { border: 1px solid var(--border-gold); background: rgba(212,160,23,0.05); color: var(--gold); }
+    .spins-badge.empty { border: 1px solid rgba(138,143,163,0.3); background: rgba(138,143,163,0.10); color: var(--muted); }
+    .spins-badge .count { font-family: ui-monospace, monospace; font-size: 1rem; font-weight: 700; }
+    .spins-status { max-width: 20rem; text-align: center; font-size: 11px; color: var(--muted); }
+
+    /* === STATS === */
+    .stats-row {
+      margin-top: 3.5rem;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;
+    }
+    @media (min-width: 640px) { .stats-row { grid-template-columns: repeat(4, 1fr); } }
+    .stat-card {
+      padding: 0.75rem; border-radius: 0.75rem;
+      border: 1px solid var(--border); background: rgba(20,22,38,0.6);
+      backdrop-filter: blur(12px);
+      transition: border-color 0.2s;
+    }
+    .stat-card:hover { border-color: var(--border-gold); }
+    .stat-card .icon { color: var(--muted); display: inline-flex; }
+    .stat-card .value { margin-top: 0.375rem; display: flex; align-items: baseline; gap: 0.125rem; font-family: 'Frank Ruhl Libre', serif; font-size: 1.5rem; font-weight: 700; }
+    .stat-card .label { margin-top: 0.125rem; font-size: 11px; letter-spacing: 0.025em; color: var(--muted); }
+
+    /* === SECTION HEADING === */
+    .section { padding: 5rem 1rem; max-width: 80rem; margin: 0 auto; position: relative; }
+    @media (min-width: 640px) { .section { padding-inline: 1.5rem; } }
+    @media (min-width: 1024px) { .section { padding-inline: 2rem; } }
+    .section-heading { max-width: 48rem; }
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.2em; color: var(--gold);
+    }
+    .section-title { font-size: 1.875rem; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
+    @media (min-width: 640px) { .section-title { font-size: 2.25rem; } }
+    .section-desc { margin-top: 0.75rem; font-size: 1rem; color: var(--muted); text-wrap: pretty; }
+
+    /* === PRIZE LADDER === */
+    .ladder-grid-top {
+      margin-top: 2.5rem; display: grid; gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) { .ladder-grid-top { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .ladder-grid-top { grid-template-columns: repeat(4, 1fr); } }
+    .ladder-grid-bottom {
+      margin-top: 1rem; display: grid; gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) { .ladder-grid-bottom { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .ladder-grid-bottom { grid-template-columns: repeat(4, 1fr); } }
+
+    .prize-card {
+      position: relative; display: flex; flex-direction: column;
+      padding: 1.25rem; border-radius: 1rem;
+      border: 1px solid var(--border); background: rgba(20,22,38,0.7);
+      backdrop-filter: blur(12px); text-align: start;
+      transition: transform 0.2s, border-color 0.2s;
+      overflow: hidden;
+      cursor: pointer; width: 100%;
+    }
+    .prize-card:hover { transform: translateY(-4px); }
+    .prize-card.wash { position: absolute; inset: 0; pointer-events: none; }
+    .prize-card.legendary { border-color: rgba(212,160,23,0.40); }
+    .prize-card.legendary:hover { border-color: rgba(212,160,23,0.60); box-shadow: 0 0 30px -5px rgba(212,160,23,0.50), 0 0 80px -20px rgba(212,160,23,0.35); }
+    .prize-card.mega { border-color: rgba(74,155,214,0.40); }
+    .prize-card.mega:hover { border-color: rgba(74,155,214,0.60); }
+    .prize-card.gold { border-color: rgba(212,160,23,0.30); }
+    .prize-card.gold:hover { border-color: rgba(212,160,23,0.50); }
+    .prize-card.premium { border-color: rgba(74,155,214,0.30); }
+    .prize-card.premium:hover { border-color: rgba(74,155,214,0.50); }
+    .prize-card.mystery { border-color: rgba(168,107,255,0.30); }
+    .prize-card.mystery:hover { border-color: rgba(168,107,255,0.50); }
+    .prize-card.bonus { border-color: rgba(27,183,138,0.30); }
+    .prize-card.bonus:hover { border-color: rgba(27,183,138,0.50); }
+    .prize-card .gradient-wash {
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(135deg, transparent, transparent);
+    }
+    .prize-card.legendary .gradient-wash { background: linear-gradient(135deg, rgba(212,160,23,0.15), transparent); }
+    .prize-card.mega .gradient-wash { background: linear-gradient(135deg, rgba(74,155,214,0.12), transparent); }
+    .prize-card.gold .gradient-wash { background: linear-gradient(135deg, rgba(212,160,23,0.10), transparent); }
+    .prize-card.premium .gradient-wash { background: linear-gradient(135deg, rgba(74,155,214,0.10), transparent); }
+    .prize-card.mystery .gradient-wash { background: linear-gradient(135deg, rgba(168,107,255,0.10), transparent); }
+    .prize-card.bonus .gradient-wash { background: linear-gradient(135deg, rgba(27,183,138,0.10), transparent); }
+    .prize-card.cash .gradient-wash { background: linear-gradient(135deg, rgba(138,143,163,0.10), transparent); }
+    .prize-card .content { position: relative; }
+    .prize-card .top-row { display: flex; justify-content: space-between; align-items: flex-start; }
+    .prize-card .tier { font-size: 11px; font-weight: 700; letter-spacing: 0.025em; }
+    .prize-card.legendary .tier, .prize-card.gold .tier { color: var(--gold); }
+    .prize-card.mega .tier, .prize-card.premium .tier { color: var(--blue-light); }
+    .prize-card.mystery .tier { color: var(--purple); }
+    .prize-card.bonus .tier { color: var(--emerald); }
+    .prize-card.cash .tier { color: var(--muted); }
+    .prize-card .rate { padding: 0.125rem 0.5rem; border-radius: 999px; border: 1px solid var(--border); background: rgba(11,13,26,0.6); font-size: 10px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--muted); }
+    .prize-card .amount-row { margin-top: 0.75rem; }
+    .prize-card .amount { display: flex; align-items: baseline; gap: 0.25rem; }
+    .prize-card .amount .shekel { font-size: 0.875rem; color: var(--muted); }
+    .prize-card .amount .num { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; letter-spacing: -0.01em; color: var(--fg); }
+    .prize-card.high .amount .num { font-size: 2.25rem; }
+    .prize-card:not(.high) .amount .num { font-size: 1.5rem; }
+    .prize-card .name-row { display: flex; align-items: center; gap: 0.5rem; font-family: 'Frank Ruhl Libre', serif; font-weight: 700; color: var(--fg); }
+    .prize-card.high .name-row { font-size: 1.875rem; }
+    .prize-card:not(.high) .name-row { font-size: 1.25rem; }
+    .prize-card .desc { margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .prize-card .footer-row { margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; }
+    .prize-card .tap-hint { font-size: 11px; letter-spacing: 0.025em; color: var(--muted); }
+    .prize-card .details-cta { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 11px; font-weight: 600; letter-spacing: 0.025em; color: var(--gold); transition: transform 0.2s; }
+    .prize-card:hover .details-cta { transform: translateX(-0.125rem); }
+
+    /* === INSIGHTS === */
+    .insights { margin-top: 2.5rem; display: grid; gap: 1rem; }
+    @media (min-width: 768px) { .insights { grid-template-columns: repeat(3, 1fr); } }
+    .insight-card { padding: 1.25rem; border-radius: 1rem; border: 1px solid var(--border); background: rgba(20,22,38,0.6); backdrop-filter: blur(12px); }
+    .insight-icon { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: 999px; background: rgba(11,13,26,0.6); }
+    .insight-title { margin-top: 0.75rem; font-size: 0.875rem; font-weight: 600; color: var(--fg); }
+    .insight-body { margin-top: 0.375rem; font-size: 0.875rem; color: var(--muted); text-wrap: pretty; }
+
+    /* === HOW IT WORKS === */
+    .steps-grid { margin-top: 2.5rem; display: grid; gap: 1.25rem; }
+    @media (min-width: 768px) { .steps-grid { grid-template-columns: repeat(3, 1fr); } }
+    .step-card { position: relative; overflow: hidden; padding: 1.5rem; border-radius: 1rem; border: 1px solid var(--border); background: rgba(20,22,38,0.6); backdrop-filter: blur(12px); transition: transform 0.2s, border-color 0.2s; }
+    .step-card:hover { transform: translateY(-4px); border-color: var(--border-gold); }
+    .step-num { position: absolute; inset-inline-end: 1rem; top: 0.75rem; font-family: 'Frank Ruhl Libre', serif; font-size: 3rem; font-weight: 700; color: rgba(245,245,247,0.05); }
+    .step-icon { display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 999px; background: linear-gradient(135deg, rgba(255,231,168,0.20), rgba(212,160,23,0.10)); color: var(--gold); }
+    .step-title { margin-top: 1rem; font-family: 'Frank Ruhl Libre', serif; font-size: 1.125rem; font-weight: 600; }
+    .step-body { margin-top: 0.5rem; font-size: 0.875rem; color: var(--muted); text-wrap: pretty; }
+
+    .features-row { margin-top: 2.5rem; display: grid; gap: 1rem; }
+    @media (min-width: 768px) { .features-row { grid-template-columns: repeat(2, 1fr); } }
+    .feature-card { display: flex; gap: 1rem; padding: 1.25rem; border-radius: 1rem; border: 1px solid var(--border); background: rgba(20,22,38,0.4); backdrop-filter: blur(12px); }
+    .feature-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 999px; background: rgba(11,13,26,0.6); }
+    .feature-title { font-size: 0.875rem; font-weight: 600; }
+    .feature-body { margin-top: 0.25rem; font-size: 0.875rem; color: var(--muted); text-wrap: pretty; }
+
+    .acceptance-card { margin-top: 2.5rem; padding: 1.5rem; border-radius: 1rem; border: 1px solid var(--border); background: rgba(20,22,38,0.6); backdrop-filter: blur(12px); }
+    .acceptance-title { font-family: 'Frank Ruhl Libre', serif; font-size: 1.125rem; font-weight: 600; }
+    .acceptance-sub { margin-top: 0.25rem; font-size: 0.875rem; color: var(--muted); text-wrap: pretty; }
+    .acceptance-grid { margin-top: 1rem; display: grid; gap: 0.5rem; }
+    @media (min-width: 640px) { .acceptance-grid { grid-template-columns: repeat(2, 1fr); } }
+    .acceptance-item { display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--muted); }
+    .acceptance-item svg { flex-shrink: 0; margin-top: 0.125rem; color: var(--emerald); }
+
+    /* === CLAIM SECTION === */
+    .claim-grid { margin-top: 2.5rem; display: grid; gap: 1rem; }
+    @media (min-width: 640px) { .claim-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .claim-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .contact-card {
+      position: relative; display: flex; flex-direction: column;
+      padding: 1.25rem; border-radius: 1rem;
+      border: 1px solid var(--border); background: rgba(20,22,38,0.6);
+      backdrop-filter: blur(12px); text-align: start;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .contact-card.verified:hover { transform: translateY(-4px); }
+    .contact-card.email.verified:hover { border-color: rgba(212,160,23,0.50); box-shadow: 0 0 30px -5px rgba(212,160,23,0.50), 0 0 80px -20px rgba(212,160,23,0.35); }
+    .contact-card.whatsapp.verified:hover { border-color: rgba(27,183,138,0.50); }
+    .contact-card.telegram.verified:hover { border-color: rgba(74,155,214,0.50); }
+    .contact-card.portal.verified:hover { border-color: rgba(168,107,255,0.50); }
+    .contact-card.unverified { border-style: dashed; opacity: 0.7; cursor: not-allowed; }
+    .contact-card .top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .contact-card .icon-tile { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: 0.75rem; }
+    .contact-card.email .icon-tile { background: rgba(212,160,23,0.15); color: var(--gold); }
+    .contact-card.whatsapp .icon-tile { background: rgba(27,183,138,0.15); color: var(--emerald); }
+    .contact-card.telegram .icon-tile { background: rgba(74,155,214,0.15); color: var(--blue-light); }
+    .contact-card.portal .icon-tile { background: rgba(168,107,255,0.15); color: var(--purple); }
+    .verified-badge { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.125rem 0.5rem; border-radius: 999px; border: 1px solid rgba(27,183,138,0.40); background: rgba(27,183,138,0.10); font-size: 9px; font-weight: 600; letter-spacing: 0.025em; color: var(--emerald); }
+    .pending-badge { padding: 0.125rem 0.5rem; border-radius: 999px; border: 1px solid rgba(245,158,11,0.40); background: rgba(245,158,11,0.10); font-size: 9px; font-weight: 600; letter-spacing: 0.025em; color: #f59e0b; }
+    .contact-card .hint { margin-top: 1rem; font-size: 10px; font-weight: 600; letter-spacing: 0.025em; color: var(--muted); }
+    .contact-card .label { margin-top: 0.125rem; font-size: 1rem; font-weight: 700; color: var(--fg); }
+    .contact-card .value { margin-top: 0.25rem; font-size: 0.875rem; color: rgba(245,245,247,0.9); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; direction: ltr; text-align: start; }
+    .contact-card .help { margin-top: 0.75rem; font-size: 0.75rem; line-height: 1.5; color: var(--muted); text-wrap: pretty; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .contact-card .action-label { margin-top: auto; padding-top: 1rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.025em; }
+    .contact-card.email .action-label { color: var(--gold); }
+    .contact-card.whatsapp .action-label { color: var(--emerald); }
+    .contact-card.telegram .action-label { color: var(--blue-light); }
+    .contact-card.portal .action-label { color: var(--purple); }
+
+    .claim-alert {
+      margin-top: 1.5rem; padding: 1rem; border-radius: 0.75rem;
+      border: 1px solid rgba(27,183,138,0.30); background: rgba(27,183,138,0.05);
+      display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--muted);
+    }
+    .claim-alert svg { flex-shrink: 0; margin-top: 0.125rem; color: var(--emerald); }
+    .claim-disclaimer {
+      margin-top: 1.5rem; padding: 1.5rem; border-radius: 1rem;
+      border: 1px solid var(--border); background: rgba(20,22,38,0.6); backdrop-filter: blur(12px);
+      display: flex; gap: 0.75rem;
+    }
+    .claim-disclaimer svg { flex-shrink: 0; margin-top: 0.125rem; color: var(--muted); }
+    .claim-disclaimer p { font-size: 0.875rem; color: var(--muted); text-wrap: pretty; }
+
+    /* === HISTORY === */
+    .history-section { padding: 5rem 1rem; max-width: 80rem; margin: 0 auto; }
+    @media (min-width: 640px) { .history-section { padding-inline: 1.5rem; } }
+    @media (min-width: 1024px) { .history-section { padding-inline: 2rem; } }
+    .history-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; margin-bottom: 2rem; }
+    .history-empty { padding: 2.5rem; border-radius: 1rem; border: 1px dashed var(--border); background: rgba(20,22,38,0.4); text-align: center; }
+    .history-empty .icon-circle { margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: 999px; background: rgba(138,143,163,0.10); color: var(--muted); }
+    .history-empty h3 { font-family: 'Frank Ruhl Libre', serif; font-size: 1.125rem; font-weight: 600; }
+    .history-empty p { margin: 0.25rem auto 0; max-width: 28rem; font-size: 0.875rem; color: var(--muted); text-wrap: pretty; }
+    .history-table { border-radius: 1rem; border: 1px solid var(--border); background: rgba(20,22,38,0.6); backdrop-filter: blur(12px); overflow: hidden; }
+    .history-row { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0.75rem; padding: 0.75rem 1.5rem; align-items: center; }
+    .history-row.header { border-bottom: 1px solid var(--border); background: rgba(11,13,26,0.4); font-size: 11px; font-weight: 600; letter-spacing: 0.025em; color: var(--muted); }
+    .history-row.entry { border-bottom: 1px solid var(--border); transition: background 0.2s; }
+    .history-row.entry:hover { background: rgba(0,56,184,0.10); }
+    .history-row.entry:last-child { border-bottom: none; }
+    .history-row .col-icon { grid-column: span 1; display: flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 999px; background: rgba(11,13,26,0.6); }
+    .history-row .col-prize { grid-column: span 5; min-width: 0; }
+    @media (min-width: 640px) { .history-row .col-prize { grid-column: span 4; } }
+    .history-row .col-prize .name { font-size: 0.875rem; font-weight: 600; color: var(--fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .history-row .col-prize .ref { font-family: ui-monospace, monospace; font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; direction: ltr; text-align: start; }
+    .history-row .col-date { grid-column: span 3; font-size: 0.75rem; color: var(--muted); }
+    @media (min-width: 640px) { .history-row .col-date { grid-column: span 3; } }
+    .history-row .col-status { grid-column: span 3; text-align: end; }
+    @media (min-width: 640px) { .history-row .col-status { grid-column: span 4; } }
+    .status-pill { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.25rem 0.625rem; border-radius: 999px; border: 1px solid; font-size: 11px; font-weight: 600; }
+    .status-pill.recorded { color: var(--emerald); background: rgba(27,183,138,0.10); border-color: rgba(27,183,138,0.30); }
+    .status-pill.submitted { color: var(--gold); background: rgba(212,160,23,0.10); border-color: rgba(212,160,23,0.30); }
+    .status-pill.paid { color: var(--fg); background: rgba(138,143,163,0.10); border-color: var(--border); }
+    .status-pill .dot { width: 6px; height: 6px; border-radius: 999px; background: currentColor; }
+    .history-amount { margin-top: 0.25rem; font-family: 'Frank Ruhl Libre', serif; font-size: 0.875rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--fg); }
+    .history-footer { display: flex; justify-content: space-between; gap: 0.75rem; padding: 0.75rem 1.5rem; border-top: 1px solid var(--border); background: rgba(11,13,26,0.4); font-size: 11px; color: var(--muted); }
+
+    /* === FOOTER === */
+    .site-footer { margin-top: 2.5rem; border-top: 1px solid var(--border); background: rgba(20,22,38,0.4); backdrop-filter: blur(12px); }
+    .footer-inner { max-width: 80rem; margin: 0 auto; padding: 3.5rem 1rem; }
+    @media (min-width: 640px) { .footer-inner { padding-inline: 1.5rem; } }
+    @media (min-width: 1024px) { .footer-inner { padding-inline: 2rem; } }
+    .footer-grid { display: grid; gap: 2.5rem; }
+    @media (min-width: 768px) { .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; } }
+    .footer-brand .brand-row { display: flex; align-items: center; gap: 0.75rem; }
+    .footer-brand p { margin-top: 1rem; max-width: 28rem; font-size: 0.875rem; color: var(--muted); text-wrap: pretty; }
+    .footer-col h4 { font-size: 11px; font-weight: 600; letter-spacing: 0.025em; }
+    .footer-col ul { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; list-style: none; }
+    .footer-col a { font-size: 0.875rem; color: var(--muted); transition: color 0.2s; }
+    .footer-col a:hover { color: var(--fg); }
+    .footer-notice { margin-top: 2.5rem; padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--border); background: rgba(11,13,26,0.4); font-size: 0.75rem; color: var(--muted); }
+    .footer-bottom { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.75rem; color: var(--muted); }
+    @media (min-width: 640px) { .footer-bottom { flex-direction: row; align-items: center; justify-content: space-between; } }
+    .footer-bottom .meta { display: flex; align-items: center; gap: 0.75rem; }
+    .footer-bottom .dot { opacity: 0.5; }
+
+    /* === MODAL === */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 70;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem;
+      background: rgba(0,0,0,0.75); backdrop-filter: blur(8px);
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: auto; }
+    .modal-card {
+      position: relative; width: 100%; max-width: 28rem;
+      padding: 2rem; border-radius: 1.5rem;
+      border: 1px solid var(--border-gold-strong); background: var(--bg-card-solid);
+      text-align: center; overflow: hidden;
+      transform: scale(0.85); opacity: 0; transition: transform 0.3s, opacity 0.3s;
+    }
+    .modal-overlay.open .modal-card { transform: scale(1); opacity: 1; }
+    .modal-card.large { max-width: 42rem; max-height: 90vh; overflow-y: auto; }
+    .modal-glow { position: absolute; inset: 0; pointer-events: none; border-radius: 1.5rem; background: radial-gradient(60% 50% at 50% 0%, rgba(0,56,184,0.18), transparent 70%); }
+    .modal-close { position: absolute; inset-inline-end: 1rem; top: 1rem; z-index: 10; padding: 0.375rem; border-radius: 999px; color: var(--muted); transition: background 0.2s, color 0.2s; }
+    .modal-close:hover { background: rgba(138,143,163,0.10); color: var(--fg); }
+    .modal-icon-circle { margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; border-radius: 999px; }
+    .modal-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.25em; }
+    .modal-title { font-family: 'Frank Ruhl Libre', serif; font-size: 1.875rem; font-weight: 700; letter-spacing: -0.02em; }
+    .modal-amount { font-family: 'Frank Ruhl Libre', serif; font-size: 1.875rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .modal-ref { margin-top: 1rem; padding: 0.5rem 0.75rem; border-radius: 0.5rem; border: 1px solid var(--border); background: rgba(11,13,26,0.4); font-size: 0.75rem; color: var(--muted); }
+    .modal-ref .ref-value { font-family: ui-monospace, monospace; color: var(--fg); direction: ltr; display: inline-block; }
+    .modal-desc { margin-top: 1rem; font-size: 0.875rem; color: var(--muted); text-wrap: pretty; }
+    .modal-actions { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    @media (min-width: 640px) { .modal-actions { flex-direction: row; } }
+    .modal-btn { flex: 1; padding: 0.75rem 1.5rem; border-radius: 999px; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.025em; transition: transform 0.2s, background 0.2s; }
+    .modal-btn.primary { background: linear-gradient(180deg, #ffe7a8, #d4a017 50%, #8a5a00); color: #1a0f00; }
+    .modal-btn.primary:hover { transform: translateY(-2px); }
+    .modal-btn.secondary { border: 1px solid var(--border); background: var(--bg-card-solid); color: var(--fg); }
+    .modal-btn.secondary:hover { background: rgba(138,143,163,0.10); }
+    .modal-btn.purple { background: linear-gradient(180deg, #a86bff, #7a3dcc 50%, #3a1d5b); color: #fff; }
+    .modal-btn.purple:hover { transform: translateY(-2px); }
+    .modal-btn.emerald { background: linear-gradient(180deg, #1bb78a, #0f5b46 50%, #0a3b2f); color: #fff; }
+    .modal-btn.emerald:hover { transform: translateY(-2px); }
+    .modal-btn:disabled { cursor: not-allowed; opacity: 0.6; }
+
+    /* Claim details modal specifics */
+    .claim-status-card { padding: 1.25rem; border-radius: 1rem; border: 1px solid var(--border-gold); background: linear-gradient(135deg, rgba(212,160,23,0.10), transparent); }
+    .claim-status-row { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
+    .claim-status-label { font-size: 11px; font-weight: 600; letter-spacing: 0.025em; color: var(--muted); }
+    .claim-status-amount { font-family: 'Frank Ruhl Libre', serif; font-size: 1.875rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .claim-status-tier { margin-top: 0.25rem; font-size: 0.75rem; letter-spacing: 0.025em; color: var(--muted); }
+    .claim-status-pill { padding: 0.5rem 0.75rem; border-radius: 0.75rem; border: 1px solid var(--border); background: rgba(11,13,26,0.5); text-align: end; }
+    .claim-status-pill .label { font-size: 0.75rem; color: var(--muted); }
+    .claim-status-pill .value { font-weight: 600; color: var(--emerald); }
+    .claim-cells { margin-top: 1rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    @media (min-width: 640px) { .claim-cells { grid-template-columns: repeat(3, 1fr); } }
+    .claim-cell { padding: 0.5rem 0.75rem; border-radius: 0.5rem; border: 1px solid var(--border); background: rgba(11,13,26,0.4); }
+    .claim-cell .label { font-size: 10px; letter-spacing: 0.025em; color: var(--muted); }
+    .claim-cell .value { margin-top: 0.125rem; color: var(--fg); font-size: 0.875rem; }
+    .claim-cell .value.mono { font-family: ui-monospace, monospace; font-size: 0.75rem; direction: ltr; text-align: start; }
+    .claim-section-title { margin-top: 1.5rem; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.025em; }
+    .claim-steps { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; list-style: none; }
+    .claim-step { display: flex; gap: 0.75rem; padding: 0.625rem 0.75rem; border-radius: 0.75rem; border: 1px solid var(--border); background: rgba(11,13,26,0.4); font-size: 0.875rem; color: var(--muted); }
+    .claim-step .num { display: flex; align-items: center; justify-content: center; width: 1.5rem; height: 1.5rem; flex-shrink: 0; border-radius: 999px; background: rgba(212,160,23,0.15); color: var(--gold); font-size: 0.75rem; font-weight: 700; }
+    .claim-info-row { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-top: 1.5rem; }
+    @media (min-width: 640px) { .claim-info-row { grid-template-columns: repeat(2, 1fr); } }
+    .claim-info-card { padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--border); background: rgba(11,13,26,0.4); }
+    .claim-info-card .title { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; font-weight: 600; color: var(--fg); }
+    .claim-info-card .body { margin-top: 0.375rem; font-size: 0.75rem; color: var(--muted); text-wrap: pretty; }
+    .claim-channels-grid { margin-top: 0.75rem; display: grid; gap: 0.75rem; }
+    @media (min-width: 640px) { .claim-channels-grid { grid-template-columns: repeat(2, 1fr); } }
+    .claim-channel-card { padding: 1rem; border-radius: 1rem; border: 1px solid var(--border); background: rgba(20,22,38,0.7); backdrop-filter: blur(12px); transition: transform 0.2s, border-color 0.2s; overflow: hidden; }
+    .claim-channel-card.verified:hover { transform: translateY(-2px); }
+    .claim-channel-card.email.verified:hover { border-color: rgba(212,160,23,0.50); }
+    .claim-channel-card.whatsapp.verified:hover { border-color: rgba(27,183,138,0.50); }
+    .claim-channel-card.telegram.verified:hover { border-color: rgba(74,155,214,0.50); }
+    .claim-channel-card.unverified { border-style: dashed; opacity: 0.7; }
+    .claim-channel-card .row { display: flex; gap: 0.75rem; align-items: flex-start; }
+    .claim-channel-card .icon-tile { display: flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; flex-shrink: 0; border-radius: 0.75rem; }
+    .claim-channel-card.email .icon-tile { background: rgba(212,160,23,0.15); color: var(--gold); }
+    .claim-channel-card.whatsapp .icon-tile { background: rgba(27,183,138,0.15); color: var(--emerald); }
+    .claim-channel-card.telegram .icon-tile { background: rgba(74,155,214,0.15); color: var(--blue-light); }
+    .claim-channel-card.portal .icon-tile { background: rgba(168,107,255,0.15); color: var(--purple); }
+    .claim-channel-card .body { flex: 1; min-width: 0; }
+    .claim-channel-card .row2 { display: flex; align-items: center; gap: 0.5rem; }
+    .claim-channel-card .label { font-size: 0.875rem; font-weight: 600; color: var(--fg); }
+    .claim-channel-card .hint { margin-top: 0.125rem; font-size: 10px; letter-spacing: 0.025em; color: var(--muted); }
+    .claim-channel-card .value { margin-top: 0.25rem; font-size: 0.875rem; font-weight: 500; color: var(--fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; direction: ltr; text-align: start; }
+    .claim-channel-card .help { margin-top: 0.75rem; font-size: 0.75rem; line-height: 1.5; color: var(--muted); text-wrap: pretty; }
+    .claim-channel-card .actions { margin-top: 0.75rem; display: flex; gap: 0.5rem; align-items: center; }
+    .claim-channel-card .channel-btn { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 0.375rem; padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.025em; transition: all 0.2s; }
+    .claim-channel-card.email .channel-btn { background: linear-gradient(90deg, rgba(212,160,23,0.15), rgba(212,160,23,0.05)); color: var(--gold); }
+    .claim-channel-card.email .channel-btn:hover { background: linear-gradient(90deg, rgba(212,160,23,0.25), rgba(212,160,23,0.10)); }
+    .claim-channel-card.whatsapp .channel-btn { background: linear-gradient(90deg, rgba(27,183,138,0.15), rgba(27,183,138,0.05)); color: var(--emerald); }
+    .claim-channel-card.whatsapp .channel-btn:hover { background: linear-gradient(90deg, rgba(27,183,138,0.25), rgba(27,183,138,0.10)); }
+    .claim-channel-card.telegram .channel-btn { background: linear-gradient(90deg, rgba(74,155,214,0.15), rgba(74,155,214,0.05)); color: var(--blue-light); }
+    .claim-channel-card.telegram .channel-btn:hover { background: linear-gradient(90deg, rgba(74,155,214,0.25), rgba(74,155,214,0.10)); }
+    .copy-btn { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.5rem 0.75rem; border-radius: 999px; border: 1px solid var(--border); background: rgba(11,13,26,0.6); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.025em; color: var(--muted); transition: all 0.2s; }
+    .copy-btn:hover { background: rgba(0,56,184,0.15); color: var(--fg); }
+    .copy-btn.copied { color: var(--emerald); }
+    .claim-notice { margin-top: 0.75rem; padding: 0.75rem; border-radius: 0.75rem; border: 1px solid rgba(27,183,138,0.30); background: rgba(27,183,138,0.05); display: flex; gap: 0.5rem; font-size: 0.75rem; color: var(--muted); }
+    .claim-notice svg { flex-shrink: 0; margin-top: 0.125rem; color: var(--emerald); }
+    .claim-terms { margin-top: 1.5rem; padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--border); background: rgba(11,13,26,0.4); font-size: 0.75rem; color: var(--muted); }
+    .claim-terms .title { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--fg); }
+    .claim-terms p { margin-top: 0.25rem; text-wrap: pretty; }
+    .claim-modal-actions { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    @media (min-width: 640px) { .claim-modal-actions { flex-direction: row; } }
+    .claim-modal-actions .modal-btn { font-size: 0.75rem; padding: 0.75rem 1rem; }
+    .claim-modal-actions .submit { display: flex; align-items: center; justify-content: center; gap: 0.5rem; border: 1px solid var(--border); background: rgba(138,143,163,0.10); color: var(--muted); cursor: not-allowed; }
+    .claim-modal-foot { margin-top: 0.75rem; text-align: center; font-size: 11px; color: var(--muted); }
+
+    /* === CONFETTI === */
+    .confetti-layer { position: fixed; inset: 0; z-index: 60; pointer-events: none; overflow: hidden; }
+    .confetti-piece { position: absolute; border-radius: 2px; }
+
+    /* === TOAST === */
+    .toast-layer { position: fixed; bottom: 1rem; inset-inline: 1rem; z-index: 90; display: flex; flex-direction: column; gap: 0.5rem; align-items: center; pointer-events: none; }
+    @media (min-width: 640px) { .toast-layer { inset-inline: auto; bottom: 1.5rem; inset-inline-end: 1.5rem; align-items: flex-end; } }
+    .toast {
+      pointer-events: auto; max-width: 22rem; padding: 0.875rem 1rem;
+      border-radius: 0.75rem; border: 1px solid var(--border);
+      background: rgba(20,22,38,0.95); backdrop-filter: blur(12px);
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+      animation: rise-fade 0.3s ease-out both;
+    }
+    .toast.success { border-color: rgba(27,183,138,0.40); }
+    .toast.error { border-color: rgba(220,38,38,0.40); }
+    .toast.info { border-color: rgba(74,155,214,0.40); }
+    .toast .title { font-size: 0.875rem; font-weight: 700; }
+    .toast.success .title { color: var(--emerald); }
+    .toast.error .title { color: #ef4444; }
+    .toast.info .title { color: var(--blue-light); }
+    .toast .desc { margin-top: 0.125rem; font-size: 0.75rem; color: var(--muted); }
+
+    /* === REDUCED MOTION === */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .wheel-svg { transition-duration: 800ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============= HEADER ============= -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#" class="logo-link">
+        <div class="flag-badge" id="headerFlag"></div>
+        <div class="brand-mark">
+          <div class="brand-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#1a0f00"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
+          </div>
+          <div>
+            <div class="brand-name">SPIN &amp; WIN</div>
+            <div class="brand-sub">המזל שלך · הרגע שלך</div>
+          </div>
+        </div>
+      </a>
+      <nav class="desktop-nav">
+        <a class="nav-link" href="#wheel">סובב וזכה</a>
+        <a class="nav-link" href="#prizes">פרסים</a>
+        <a class="nav-link" href="#how">איך זה עובד</a>
+        <a class="nav-link" href="#claim">תביעה</a>
+        <a class="nav-link" href="#history">ההיסטוריה שלי</a>
+      </nav>
+      <div style="display:flex; align-items:center; gap:0.5rem;">
+        <a href="#wheel" class="cta-spin">סובב עכשיו</a>
+        <button class="menu-btn" id="menuBtn" aria-label="פתח תפריט">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============= MOBILE MENU ============= -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="תפריט נייד">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-title">
+        <div class="flag-badge" id="menuFlag" style="height:1.5rem; width:2.25rem;"></div>
+        <span>תפריט</span>
+      </div>
+      <button class="mobile-menu-close" id="menuCloseBtn" aria-label="סגור תפריט">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#wheel">סובב וזכה</a>
+      <a href="#prizes">פרסים</a>
+      <a href="#how">איך זה עובד</a>
+      <a href="#claim">תביעה</a>
+      <a href="#history">ההיסטוריה שלי</a>
+    </nav>
+    <a href="#wheel" class="mobile-cta" id="mobileCta">לחצו על המרכז כדי לסובב — חינם</a>
+    <p style="margin-top:1.5rem; font-size:0.75rem; color:var(--muted);">18+ בלבד · זכאות מאומתת · ללא הפקדה</p>
+  </aside>
+
+  <!-- ============= HERO ============= -->
+  <section class="hero" id="wheel">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-flag-row">
+          <div class="hero-flag" id="heroFlag"></div>
+          <div class="hero-flag-text">
+            <strong>קידום ישראלי</strong>
+            <span>זכאות מאומתת בעת התביעה</span>
+          </div>
+        </div>
+
+        <div class="status-chip">
+          <span class="ping-dot"></span>
+          גלגל חי · 3 סיבובים חינם · ללא התחברות · ללא הפקדה
+        </div>
+
+        <h1>
+          <span style="display:block;">SPIN</span>
+          <span style="display:block;">
+            <span class="text-gold-gradient">&amp; </span>
+            <span>WIN</span>
+          </span>
+        </h1>
+
+        <p class="hero-slogan text-blue-gradient">המזל שלך. הרגע שלך.</p>
+        <p class="hero-sub">סיבוב אחד יכול לשנות הכל.</p>
+
+        <div class="jackpot-card">
+          <div class="jackpot-label">ג'קפוט גרנד</div>
+          <div class="jackpot-amount">
+            <span class="shekel">₪</span>
+            <span class="amount text-gold-gradient">200,000</span>
+          </div>
+          <p class="jackpot-desc">הפרס העליון האגדי. לחצו על מרכז הגלגל כדי לסובב ולחשוף את התוצאה שלכם.</p>
+        </div>
+
+        <div class="prize-preview-row">
+          <div class="prize-preview"><div class="label">פרס מגה</div><div class="amount" style="color:var(--blue-light);">₪100,000</div></div>
+          <div class="prize-preview"><div class="label">פרס זהב</div><div class="amount" style="color:var(--gold);">₪50,000</div></div>
+          <div class="prize-preview"><div class="label">פרס פרימיום</div><div class="amount" style="color:var(--blue-light);">₪15,000</div></div>
+        </div>
+
+        <div class="hero-cta-row">
+          <a href="#wheel" class="btn-primary">
+            לחצו על המרכז כדי לסובב
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+          </a>
+          <a href="#prizes" class="btn-secondary">כל הפרסים</a>
+        </div>
+
+        <p class="hero-foot">18+ בלבד · זכאות מאומתת · ללא התחברות · ללא הפקדה</p>
+      </div>
+
+      <div class="wheel-wrap">
+        <div class="wheel-container">
+          <div class="wheel-glow"></div>
+          <div class="wheel-arena">
+            <div class="wheel-pointer">
+              <svg width="44" height="56" viewBox="0 0 44 56">
+                <defs>
+                  <linearGradient id="pointer-grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#ffe7a8"/>
+                    <stop offset="55%" stop-color="#d4a017"/>
+                    <stop offset="100%" stop-color="#8a5a00"/>
+                  </linearGradient>
+                </defs>
+                <path d="M22 54 L4 12 Q22 0 40 12 Z" fill="url(#pointer-grad)" stroke="#1a0f00" stroke-width="1.5"/>
+                <circle cx="22" cy="14" r="4.5" fill="#fff7d8"/>
+              </svg>
+            </div>
+            <svg class="wheel-svg" id="wheelSvg" viewBox="0 0 440 440"></svg>
+            <button class="center-button idle" id="centerButton" aria-label="לחצו על המרכז כדי לסובב">
+              <span class="center-glow-ring"></span>
+              <span class="center-disc">
+                <span class="center-blue-ring"></span>
+                <span id="centerContent">
+                  <span class="center-text-wrap">
+                    <span class="center-text-tap">לחצו כדי</span>
+                    <span class="center-text-spin">לסובב</span>
+                  </span>
+                </span>
+              </span>
+            </button>
+          </div>
+          <div class="spins-badge-wrap">
+            <div class="spins-badge has" id="spinsBadge">
+              <span class="count text-gold-gradient" id="spinsCount">3</span>
+              <span>סיבובים חינם נותרו</span>
+            </div>
+            <p class="spins-status" id="spinsStatus">לחצו על מרכז הגלגל כדי לסובב ולחשוף את התוצאה שלכם.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-row" id="statsRow"></div>
+  </section>
+
+  <!-- ============= PRIZE LADDER ============= -->
+  <section class="section" id="prizes">
+    <div class="section-heading">
+      <div class="section-eyebrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        סולם פרסים · 8 תוצאות
+      </div>
+      <h2 class="section-title">כל תוצאה. מאורגנת.</h2>
+      <p class="section-desc">סולם הפרסים המלא של גלגל SPIN &amp; WIN — ממוין לפי ערך. ארבעת פרסי המזומן בעלי הערך הגבוה מופיעים בשורה העליונה; תיבת המסתורין, סיבוב הבונוס ופרסי המזומן הקטנים מתחת. שיעורי הזכייה המוצגים תואמים את התצורה המפורסמת — עליהם להתאים לתצורת הקידום המאומתת לפני הצגתם כסיכויים חיים.</p>
+    </div>
+    <div class="ladder-grid-top" id="ladderTop"></div>
+    <div class="ladder-grid-bottom" id="ladderBottom"></div>
+    <div class="insights">
+      <div class="insight-card">
+        <div class="insight-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+        <h3 class="insight-title">רוב השחקנים זוכים ב-₪50,000</h3>
+        <p class="insight-body">לפרס הזהב יש את שיעור הזכייה הגבוה ביותר (50%) על הגלגל — תוצאת הכותרת הסבירה ביותר בכל סיבוב נתון.</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4a9bd6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.288L12 21l1.9-5.8a2 2 0 0 1 1.288-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.288-1.288Z"/></svg></div>
+        <h3 class="insight-title">זכיות גדולות נדירות יותר בהדרגה</h3>
+        <p class="insight-body">₪100,000 (פרס מגה, 6%) והג'קפוט הגרנד ₪200,000 (2%) הן תוצאות ברמת כותרת — הן קורות, אך לעיתים רחוקות.</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8fa3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
+        <h3 class="insight-title">סיבוב בונוס מחזיר את התור</h3>
+        <p class="insight-body">תוצאת סיבוב בונוס (12%) נותנת לכם סיבוב נוסף במקום פרס — מונה הסיבובים שלכם עולה, לא יורד.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= HOW IT WORKS ============= -->
+  <section class="section" id="how">
+    <div class="section-heading">
+      <div class="section-eyebrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        איך זה עובד · שלושה צעדים
+      </div>
+      <h2 class="section-title">לחצו. סובבו. תבעו.</h2>
+      <p class="section-desc">אין חשבונות, אין הפקדות, אין חיכוך. מרכז הגלגל הוא נקודת הכניסה היחידה שלכם — כל זרימה אחרת נובעת מתוצאת סיבוב מאומתת.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3 class="step-title">לחצו על המרכז</h3>
+        <p class="step-body">מכסה הזהב הגדול של הגלגל הוא הדרך היחידה להתחיל סיבוב. עובד עם עכבר, מגע ומקלדת (Enter / Space). הילה עדינה מציינת שהוא מוכן.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.288L12 21l1.9-5.8a2 2 0 0 1 1.288-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.288-1.288Z"/></svg></div>
+        <h3 class="step-title">נחתו על תוצאה מאומתת</h3>
+        <p class="step-body">הגלגל מאט על התוצאה בפועל שנבחרה על ידי מערכת המשחק. התראת תוצאה מופיעה עם הפרס המאומת, מספר הייחוס והצעד הבא.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3 class="step-title">סקרו ותבעו</h3>
+        <p class="step-body">לפרסים הניתנים לתביעה, התראת התביעה פותחת את מודאל פרטי התביעה עם ערוצי קשר מאומתים. בחרו אחד כדי להתחיל אימות.</p>
+      </div>
+    </div>
+    <div class="features-row">
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div>
+          <h3 class="feature-title">כספים משוחררים תוך 24 שעות מאימות</h3>
+          <p class="feature-body">לאחר אימות זהות וזכאות, תשלומים מעובדים תוך יום עסקים אחד. זכיות בסכומים גבוהים עשויות לדרוש סקירה נוספת.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1bb78a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div>
+          <h3 class="feature-title">תוצאות מאומתות בצד השרת</h3>
+          <p class="feature-body">אנימציית הגלגל עוקבת אחר התוצאה — היא לא קובעת אותה. מערכת המשחק הסמכותית מאמתת כל סיבוב וחותמת את מספר הייחוס.</p>
+        </div>
+      </div>
+    </div>
+    <div class="acceptance-card">
+      <h3 class="acceptance-title">בדיקת קבלה סופית</h3>
+      <p class="acceptance-sub">כל פריט למטה מאומת על ידי המימוש:</p>
+      <div class="acceptance-grid" id="acceptanceGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============= CLAIM SECTION ============= -->
+  <section class="section" id="claim">
+    <div class="section-heading">
+      <div class="section-eyebrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        תבעו את הפרס שלכם
+      </div>
+      <h2 class="section-title">התוצאה שלכם. הצעד הבא שלכם.</h2>
+      <p class="section-desc">כאשר אתם רושמים פרס הניתן לתביעה, מודאל פרטי התביעה נפתח עם התוצאה המאומתת, מספר ייחוס ייחודי, התאריך, סטטוס הזכאות, וערוצי הקשר המאומתים של משה למטה. כל ערוץ נפתח עם הודעת תביעה מוכנה מראש מוכנה לשליחה.</p>
+    </div>
+    <div class="claim-grid" id="claimGrid"></div>
+    <div class="claim-alert">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></svg>
+      <span><strong style="color:var(--fg);">אימייל, WhatsApp ו-Telegram מאומתים</strong> — כל אחד נפתח עם הודעת תביעה מוכנה הכוללת את הפרס המאומת, מספר הייחוס והתאריך. פורטל התביעות הרשמי נשאר ממתין עד שתסופק כתובת הגשה מאובטחת. לא נעשה שימוש במידע קשר מומצא בשום מקום באתר זה.</span>
+    </div>
+    <div class="claim-disclaimer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <p><strong style="color:var(--fg);">Disclaimer:</strong> Prize promotions are subject to official rules, eligibility, and jurisdiction-specific permits before launch. Cash and high-value prizes are promotional concepts until officially funded and confirmed. No purchase necessary. Void where prohibited. Available rewards, draw dates, and prize values shown on this site may change based on funding confirmation and legal review for the operating region, including Israel if targeting Israeli users.</p>
+    </div>
+  </section>
+
+  <!-- ============= HISTORY ============= -->
+  <section class="history-section" id="history">
+    <div class="history-header">
+      <div>
+        <div class="section-eyebrow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+          היסטוריית הפרסים הפרטית שלכם
+        </div>
+        <h2 class="section-title">התוצאות שנרשמו עבורכם</h2>
+        <p style="margin-top:0.5rem; max-width:42rem; font-size:0.875rem; color:var(--muted); text-wrap:pretty;">יומן מקומי פרטי של כל סיבוב שהשלמתם בדפדפן זה. שום דבר לא נשלח לשרת. נמחק אוטומטית אם תאפסו את ההדגמה.</p>
+      </div>
+      <button class="btn-secondary" id="resetHistoryBtn" style="display:none;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        נקה היסטוריה
+      </button>
+    </div>
+    <div id="historyContent"></div>
+  </section>
+
+  <!-- ============= FOOTER ============= -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-row">
+            <div class="flag-badge" id="footerFlag" style="height:1.75rem; width:2.5rem;"></div>
+            <div class="brand-mark">
+              <div class="brand-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#1a0f00"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
+              </div>
+              <div>
+                <div class="brand-name">SPIN &amp; WIN</div>
+                <div class="brand-sub">המזל שלך · הרגע שלך</div>
+              </div>
+            </div>
+          </div>
+          <p>SPIN &amp; WIN הוא גלגל פרסים אינטראקטיבי חינמי. לחצו על המרכז כדי לסובב, חשפו תוצאה מאומתת, וסקרו את נתיב התביעה שלכם. ללא הפקדה חובה.</p>
+        </div>
+        <div class="footer-col">
+          <h4>פלטפורמה</h4>
+          <ul><li><a href="#wheel">סובב וזכה</a></li><li><a href="#prizes">סולם פרסים</a></li><li><a href="#how">איך זה עובד</a></li><li><a href="#history">ההיסטוריה שלי</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>משפטי ואמון</h4>
+          <ul><li><a href="#">תנאים והגבלות</a></li><li><a href="#">מדיניות פרטיות</a></li><li><a href="#">כללים רשמיים</a></li><li><a href="#">זכאות וגיל</a></li><li><a href="#">משחק אחראי</a></li><li><a href="#">מדיניות עוגיות</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>שחקו אחראי</h4>
+          <ul><li><a href="#">18+ בלבד</a></li><li><a href="#">הרחקה עצמית</a></li><li><a href="#">הגדרת גבולות</a></li><li><a href="#">קבלת עזרה</a></li><li><a href="#">זכאות מאומתת</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-notice">
+        <strong style="color:var(--fg);">שחקו אחראי:</strong> SPIN &amp; WIN הוא פלטפורמת תגמולים ללא תשלום. אין דרישה להפקיד כדי להשתתף. תוצאות מאומתות בצד השרת ונתונות לביקורת. 18+ בלבד · זכאות מאומתת.
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 SPIN &amp; WIN. כל הזכויות שמורות.</div>
+        <div class="meta">
+          <span>v2.0 · מהדורת פרימיום אינטראקטיבית</span>
+          <span class="dot">·</span>
+          <span>נבנה בקפידה · חינם לשחק</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============= MODALS ============= -->
+  <div class="modal-overlay" id="resultModal" role="dialog" aria-modal="true">
+    <div class="modal-card" id="resultModalCard"></div>
+  </div>
+  <div class="modal-overlay" id="detailModal" role="dialog" aria-modal="true">
+    <div class="modal-card" id="detailModalCard"></div>
+  </div>
+  <div class="modal-overlay" id="claimNotifModal" role="dialog" aria-modal="true">
+    <div class="modal-card" id="claimNotifCard"></div>
+  </div>
+  <div class="modal-overlay" id="claimDetailsModal" role="dialog" aria-modal="true">
+    <div class="modal-card large" id="claimDetailsCard"></div>
+  </div>
+
+  <!-- Confetti + Toast layers -->
+  <div class="confetti-layer" id="confettiLayer"></div>
+  <div class="toast-layer" id="toastLayer"></div>
+
+  <script>
+    /* =====================================================================
+       SPIN & WIN — Single-file vanilla JS app
+       ===================================================================== */
+
+    // ─────────────────────────────────────────────────────────────────────
+    // PRIZE OUTCOMES
+    // ─────────────────────────────────────────────────────────────────────
+    const PRIZE_OUTCOMES = [
+      { id: "grand-jackpot", wheelLabel: "₪200K", name: "ג'קפוט גרנד", amount: 200000, tierLabel: "ג'קפוט גרנד", rarity: "legendary", category: "cash", rate: 0.02, descriptor: "הפרס העליון האגדי בגלגל SPIN & WIN. זוכים מאומתים ייצרו קשר על ידי צוות התביעות הרשמי כדי לתאם משלוח פרס מאובטח.", claimable: true },
+      { id: "mega-prize",    wheelLabel: "₪100K", name: "פרס מגה",     amount: 100000, tierLabel: "פרס מגה",     rarity: "mega",      category: "cash", rate: 0.06, descriptor: "פרס מזומן בערך גבוה שאומת. אימות זהות וזכאות נדרשים לפני שחרור כל תשלום.", claimable: true },
+      { id: "gold-prize",    wheelLabel: "₪50K",  name: "פרס זהב",     amount: 50000,  tierLabel: "פרס זהב",     rarity: "gold",      category: "cash", rate: 0.50, descriptor: "פרס הכותרת השכיח ביותר על הגלגל. תוצאה מאומתת של ₪50,000, כפופה לאימות תביעה סטנדרטי.", claimable: true },
+      { id: "premium-prize", wheelLabel: "₪15K",  name: "פרס פרימיום", amount: 15000,  tierLabel: "פרס פרימיום", rarity: "premium",   category: "cash", rate: 0.14, descriptor: "פרס מזומן בינוני-גבוה מוצק. זוכים מאומתים יכולים לעבור לאזור התביעה כדי להתחיל אימות.", claimable: true },
+      { id: "mystery-box",   wheelLabel: "מסתורין", name: "תיבת מסתורין", amount: null, tierLabel: "תיבת מסתורין", rarity: "mystery", category: "mystery", rate: 0.05, descriptor: "פרס הפתעה שנפתח על ידי הגלגל. תוכן הפרס נחשף רק לאחר שמערכת המשחק מאמתת אותו.", claimable: true },
+      { id: "bonus-spin",   wheelLabel: "+1 סיבוב", name: "סיבוב בונוס", amount: null, tierLabel: "סיבוב בונוס", rarity: "bonus",   category: "bonus",  rate: 0.12, descriptor: "סיבוב נוסף נוסף לחשבון שלכם. השתמשו בו עכשיו כדי לנסות שוב את פרסי הכותרת.", claimable: false },
+      { id: "cash-100",     wheelLabel: "₪100",   name: "פרס מזומן",  amount: 100,    tierLabel: "₪100 מזומן",  rarity: "cash",      category: "cash", rate: 0.06, descriptor: "פרס מזומן קטן שאומת. אימות זכאות חל; זמן העיבוד תלוי בערוץ התביעה שנבחר.", claimable: true },
+      { id: "cash-50",      wheelLabel: "₪50",    name: "פרס מזומן",  amount: 50,     tierLabel: "₪50 מזומן",   rarity: "cash",      category: "cash", rate: 0.05, descriptor: "פרס מזומן קטן שאומת. אימות זכאות חל; זמן העיבוד תלוי בערוץ התביעה שנבחר.", claimable: true },
+    ];
+
+    const RARITY_COLOR = {
+      legendary: { from: "#0a2c8a", to: "#1e4dc4", text: "#ffe7a8" },
+      mega:      { from: "#1a2a6b", to: "#3a5bb8", text: "#ffe7a8" },
+      gold:      { from: "#5a4310", to: "#d4a017", text: "#fff5d2" },
+      premium:   { from: "#1c3340", to: "#3a6a82", text: "#d6efff" },
+      mystery:   { from: "#3a1d5b", to: "#7a3dcc", text: "#f3e8ff" },
+      bonus:     { from: "#0f5b46", to: "#1bb78a", text: "#d9fff0" },
+      cash:      { from: "#2a2740", to: "#3d3859", text: "#d7d4ea" },
+    };
+
+    const FREE_SPINS_TOTAL = 3;
+    const HISTORY_KEY = "spinwin.history.v1";
+    const SPINS_KEY = "spinwin.spinsleft.v1";
+
+    // Verified Moshe contact details
+    const SUPPORT_EMAIL = "playandwin312@gmail.com";
+    const SUPPORT_WHATSAPP_DISPLAY = "+1 (814) 610-2108";
+    const SUPPORT_WHATSAPP_INTL = "18146102108";
+    const SUPPORT_TELEGRAM_HANDLE = "moshe_maimon1";
+
+    // ─────────────────────────────────────────────────────────────────────
+    // HELPERS
+    // ─────────────────────────────────────────────────────────────────────
+    function formatILS(amount) {
+      if (amount === null || amount === undefined) return "";
+      return "₪" + amount.toLocaleString("en-US");
+    }
+    function formatResultDate(d) {
+      const months = ["ינו","פבר","מרץ","אפר","מאי","יוני","יולי","אוג","ספט","אוק","נוב","דצמ"];
+      const day = d.getDate();
+      const month = months[d.getMonth()];
+      const year = d.getFullYear();
+      const hh = String(d.getHours()).padStart(2, "0");
+      const mm = String(d.getMinutes()).padStart(2, "0");
+      return `${day} ${month} ${year} · ${hh}:${mm}`;
+    }
+    function makeResultReference(outcomeId, ts) {
+      const safe = outcomeId.replace(/[^a-z0-9]/gi, "").slice(0, 4).toUpperCase().padEnd(4, "X");
+      const tail = ts.toString(36).toUpperCase().slice(-6).padStart(6, "0");
+      return `SW-${safe}-${tail}`;
+    }
+    function buildClaimMessage(ctx) {
+      const { outcome, resultRef, resultDate } = ctx;
+      const lines = [];
+      lines.push("שלום משה,");
+      lines.push("");
+      lines.push("רשמתי תוצאת זכייה ב-SPIN & WIN וארצה להתחיל את תהליך התביעה.");
+      lines.push("");
+      lines.push("──── תוצאה מאומתת ────");
+      if (outcome) {
+        lines.push(`דרגת פרס : ${outcome.tierLabel}`);
+        if (outcome.amount !== null) lines.push(`סכום פרס : ${formatILS(outcome.amount)}`);
+        else lines.push(`פרס : ${outcome.name}`);
+        lines.push(`שיעור זכייה : ${Math.round(outcome.rate * 100)}%`);
+      }
+      if (resultRef) lines.push(`מספר ייחוס : ${resultRef}`);
+      if (resultDate) lines.push(`תאריך : ${formatResultDate(resultDate)}`);
+      lines.push("");
+      lines.push("אנא הדריכו אותי בשלבי הזכאות והאימות כדי שנוכל להשלים את התביעה.");
+      lines.push("");
+      lines.push("תודה,");
+      lines.push("[שמך]");
+      return lines.join("\n");
+    }
+    function buildClaimSubject(ctx) {
+      const { outcome, resultRef } = ctx;
+      const prize = outcome ? (outcome.amount !== null ? `${formatILS(outcome.amount)} — ${outcome.tierLabel}` : outcome.name) : "הפרס שלי";
+      const ref = resultRef ? ` · ייחוס ${resultRef}` : "";
+      return `תביעת פרס SPIN & WIN — ${prize}${ref}`;
+    }
+
+    function buildChannelHref(channelId, ctx) {
+      if (channelId === "email") return `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(buildClaimSubject(ctx))}&body=${encodeURIComponent(buildClaimMessage(ctx))}`;
+      if (channelId === "whatsapp") return `https://wa.me/${SUPPORT_WHATSAPP_INTL}?text=${encodeURIComponent(buildClaimMessage(ctx))}`;
+      if (channelId === "telegram") return `https://t.me/${SUPPORT_TELEGRAM_HANDLE}`;
+      return null;
+    }
+
+    function $(sel) { return document.querySelector(sel); }
+    function $$(sel) { return Array.from(document.querySelectorAll(sel)); }
+    function el(tag, attrs, ...children) {
+      const node = document.createElement(tag);
+      if (attrs) {
+        for (const k in attrs) {
+          if (k === "class") node.className = attrs[k];
+          else if (k === "html") node.innerHTML = attrs[k];
+          else if (k.startsWith("on") && typeof attrs[k] === "function") node.addEventListener(k.slice(2), attrs[k]);
+          else if (k === "style" && typeof attrs[k] === "object") Object.assign(node.style, attrs[k]);
+          else if (attrs[k] !== null && attrs[k] !== undefined) node.setAttribute(k, attrs[k]);
+        }
+      }
+      for (const c of children) {
+        if (c === null || c === undefined || c === false) continue;
+        if (typeof c === "string" || typeof c === "number") node.appendChild(document.createTextNode(String(c)));
+        else node.appendChild(c);
+      }
+      return node;
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // ISRAELI FLAG SVG
+    // ─────────────────────────────────────────────────────────────────────
+    function israeliFlagSVG(wave) {
+      const cx = 110, cy = 80, R = 50;
+      const r32 = (Math.sqrt(3) / 2) * R;
+      const r12 = R / 2;
+      const upTriangle = `${cx},${cy - R} ${cx + r32},${cy + r12} ${cx - r32},${cy + r12}`;
+      const downTriangle = `${cx},${cy + R} ${cx + r32},${cy - r12} ${cx - r32},${cy - r12}`;
+      const waveClass = wave ? "flag-wave" : "";
+      return `
+        <svg viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="דגל ישראל" style="width:100%; height:100%; display:block;">
+          <defs>
+            <linearGradient id="flag-blue-grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1e4dc4"/><stop offset="50%" stop-color="#0038b8"/><stop offset="100%" stop-color="#002a8f"/>
+            </linearGradient>
+            <linearGradient id="flag-sheen" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/><stop offset="50%" stop-color="#f3f6ff" stop-opacity="0.85"/><stop offset="100%" stop-color="#e6ecff" stop-opacity="0.9"/>
+            </linearGradient>
+            <linearGradient id="flag-shadow" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#000000" stop-opacity="0.18"/><stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g class="${waveClass}">
+            <rect x="0" y="0" width="220" height="160" fill="url(#flag-sheen)"/>
+            <rect x="0" y="0" width="220" height="26.67" fill="url(#flag-blue-grad)"/>
+            <rect x="0" y="133.33" width="220" height="26.67" fill="url(#flag-blue-grad)"/>
+            <rect x="0" y="0" width="220" height="160" fill="url(#flag-shadow)"/>
+            <polygon points="${upTriangle}" fill="none" stroke="url(#flag-blue-grad)" stroke-width="6" stroke-linejoin="round"/>
+            <polygon points="${downTriangle}" fill="none" stroke="url(#flag-blue-grad)" stroke-width="6" stroke-linejoin="round"/>
+          </g>
+        </svg>
+      `;
+    }
+    function renderFlags() {
+      $("#headerFlag").innerHTML = israeliFlagSVG(false);
+      $("#menuFlag").innerHTML = israeliFlagSVG(false);
+      $("#heroFlag").innerHTML = israeliFlagSVG(true);
+      $("#footerFlag").innerHTML = israeliFlagSVG(false);
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // STATE
+    // ─────────────────────────────────────────────────────────────────────
+    const state = {
+      spinsLeft: FREE_SPINS_TOTAL,
+      wheelRotation: 0,
+      wheelState: "idle", // idle | processing | spinning | settled
+      currentOutcome: null,
+      currentRef: null,
+      currentDate: null,
+      claimModalOutcome: null,
+      history: [],
+    };
+
+    // ─────────────────────────────────────────────────────────────────────
+    // WHEEL SVG RENDERING
+    // ─────────────────────────────────────────────────────────────────────
+    function renderWheel() {
+      const segments = PRIZE_OUTCOMES;
+      const SEG_COUNT = segments.length;
+      const SEG_DEG = 360 / SEG_COUNT;
+      const radius = 200;
+      const center = 220;
+      let svgInner = "";
+
+      // Defs
+      svgInner += "<defs>";
+      segments.forEach(seg => {
+        const c = RARITY_COLOR[seg.rarity];
+        svgInner += `<linearGradient id="grad-${seg.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${c.from}"/><stop offset="100%" stop-color="${c.to}"/></linearGradient>`;
+      });
+      svgInner += `<linearGradient id="ring-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffe7a8"/><stop offset="50%" stop-color="#d4a017"/><stop offset="100%" stop-color="#7a4a00"/></linearGradient>`;
+      svgInner += `<linearGradient id="wedge-gloss" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="60%" stop-color="#ffffff" stop-opacity="0"/></linearGradient>`;
+      svgInner += "</defs>";
+
+      // Outer gold ring
+      svgInner += `<circle cx="${center}" cy="${center}" r="${radius + 14}" fill="none" stroke="url(#ring-grad)" stroke-width="6"/>`;
+      svgInner += `<circle cx="${center}" cy="${center}" r="${radius + 8}" fill="none" stroke="#1a0f00" stroke-width="1.5" opacity="0.6"/>`;
+
+      // Wedges
+      segments.forEach((seg, i) => {
+        const startDeg = i * SEG_DEG - 90;
+        const endDeg = startDeg + SEG_DEG;
+        const toXY = (deg) => {
+          const rad = (deg * Math.PI) / 180;
+          return [center + radius * Math.cos(rad), center + radius * Math.sin(rad)];
+        };
+        const [x1, y1] = toXY(startDeg);
+        const [x2, y2] = toXY(endDeg);
+        const largeArc = SEG_DEG > 180 ? 1 : 0;
+        const path = `M ${center} ${center} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2} Z`;
+        const midDeg = startDeg + SEG_DEG / 2;
+        const midRad = (midDeg * Math.PI) / 180;
+        const labelDist = radius * 0.64;
+        const lx = center + labelDist * Math.cos(midRad);
+        const ly = center + labelDist * Math.sin(midRad);
+        const c = RARITY_COLOR[seg.rarity];
+        const fontSize = seg.wheelLabel.length > 7 ? 13 : 17;
+        const labelRotate = midDeg + 90;
+        svgInner += `
+          <g>
+            <path d="${path}" fill="url(#grad-${seg.id})" stroke="#0a0710" stroke-width="1.5"/>
+            <g transform="translate(${lx} ${ly}) rotate(${labelRotate})">
+              <text text-anchor="middle" dominant-baseline="middle" font-size="${fontSize}" font-weight="700" fill="${c.text}" style="letter-spacing:0.5px; font-family: Heebo, sans-serif;">${seg.wheelLabel}</text>
+            </g>
+            <path d="${path}" fill="url(#wedge-gloss)" opacity="0.12"/>
+          </g>`;
+      });
+
+      // Stud lights
+      for (let i = 0; i < SEG_COUNT * 2; i++) {
+        const angle = (i / (SEG_COUNT * 2)) * Math.PI * 2;
+        const sr = radius + 14;
+        const sx = center + sr * Math.cos(angle);
+        const sy = center + sr * Math.sin(angle);
+        svgInner += `<circle cx="${sx}" cy="${sy}" r="3" fill="#ffe7a8"/>`;
+      }
+
+      $("#wheelSvg").innerHTML = svgInner;
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // SPIN LOGIC
+    // ─────────────────────────────────────────────────────────────────────
+    function pickWeighted() {
+      const total = PRIZE_OUTCOMES.reduce((s, o) => s + o.rate, 0);
+      const r = Math.random() * total;
+      let acc = 0;
+      for (const seg of PRIZE_OUTCOMES) {
+        acc += seg.rate;
+        if (r <= acc) return seg;
+      }
+      return PRIZE_OUTCOMES[PRIZE_OUTCOMES.length - 1];
+    }
+
+    function updateCenterButton() {
+      const btn = $("#centerButton");
+      const content = $("#centerContent");
+      btn.classList.remove("idle");
+      if (state.wheelState === "processing") {
+        btn.disabled = true;
+        content.innerHTML = `<svg class="loader-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="none" stroke="rgba(58,31,0,0.25)" stroke-width="3"/><circle class="spin-part" cx="20" cy="20" r="14" fill="none" stroke="#3a1f00" stroke-width="3" stroke-linecap="round" stroke-dasharray="60 30"/></svg>`;
+      } else if (state.wheelState === "spinning") {
+        btn.disabled = true;
+        content.innerHTML = `<span class="center-text-busy">…</span>`;
+      } else if (state.spinsLeft <= 0) {
+        btn.disabled = true;
+        content.innerHTML = `<span class="center-text-empty">אזלו הסיבובים</span>`;
+      } else {
+        btn.disabled = false;
+        btn.classList.add("idle");
+        content.innerHTML = `<span class="center-text-wrap"><span class="center-text-tap">לחצו כדי</span><span class="center-text-spin">לסובב</span></span>`;
+      }
+    }
+
+    function updateSpinsBadge() {
+      const badge = $("#spinsBadge");
+      const status = $("#spinsStatus");
+      if (state.spinsLeft > 0) {
+        badge.classList.remove("empty");
+        badge.classList.add("has");
+        badge.innerHTML = `<span class="count text-gold-gradient">${state.spinsLeft}</span><span>סיבובים חינם נותרו</span>`;
+      } else {
+        badge.classList.remove("has");
+        badge.classList.add("empty");
+        badge.innerHTML = `<span>אין סיבובים נותרים</span>`;
+      }
+      if (state.wheelState === "processing") status.textContent = "מאמת זכאות…";
+      else if (state.wheelState === "spinning") status.textContent = "הגלגל מסתובב — המתינו בבקשה";
+      else if (state.spinsLeft <= 0) status.textContent = "סיבובי החינם שלכם אזלו. רעננו את הדף כדי לאפס את ההדגמה.";
+      else status.textContent = "לחצו על מרכז הגלגל כדי לסובב ולחשוף את התוצאה שלכם.";
+    }
+
+    function handleCenterClick() {
+      if (state.wheelState === "spinning" || state.wheelState === "processing") {
+        showToast("info", "הגלגל עדיין מסתובב", "אנא המתינו לסיום הסיבוב הנוכחי.");
+        return;
+      }
+      if (state.spinsLeft <= 0) {
+        showToast("error", "אין סיבובים נותרים", "רעננו את הדף כדי לאפס את ההדגמה, או עקבו אחר שלבי התביעה לכל פרס שנרשם.");
+        return;
+      }
+
+      state.wheelState = "processing";
+      updateCenterButton();
+      updateSpinsBadge();
+
+      setTimeout(() => {
+        const winner = pickWeighted();
+        const winnerIndex = PRIZE_OUTCOMES.findIndex(s => s.id === winner.id);
+        const SEG_DEG = 360 / PRIZE_OUTCOMES.length;
+        const wedgeStart = winnerIndex * SEG_DEG;
+        const innerOffset = SEG_DEG * 0.2 + Math.random() * SEG_DEG * 0.6;
+        const targetInsideWedge = wedgeStart + innerOffset;
+        const current = state.wheelRotation;
+        const currentMod = ((current % 360) + 360) % 360;
+        const desiredMod = ((-targetInsideWedge) % 360 + 360) % 360;
+        let delta = desiredMod - currentMod;
+        if (delta < 0) delta += 360;
+        const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const fullSpins = reducedMotion ? 1 : 5 + Math.floor(Math.random() * 2);
+        const newRotation = current + fullSpins * 360 + delta;
+        const duration = reducedMotion ? 850 : 5400;
+
+        state.wheelState = "spinning";
+        const wheel = $("#wheelSvg");
+        wheel.style.transform = `rotate(${newRotation}deg)`;
+        state.wheelRotation = newRotation;
+        updateCenterButton();
+        updateSpinsBadge();
+
+        setTimeout(() => {
+          state.wheelState = "settled";
+          onSpinComplete(winner);
+          setTimeout(() => {
+            state.wheelState = "idle";
+            updateCenterButton();
+            updateSpinsBadge();
+          }, 200);
+        }, duration);
+      }, 350);
+    }
+
+    function onSpinComplete(outcome) {
+      const ts = Date.now();
+      const ref = makeResultReference(outcome.id, ts);
+      const date = new Date(ts);
+      state.currentOutcome = outcome;
+      state.currentRef = ref;
+      state.currentDate = date;
+
+      if (outcome.category === "bonus") {
+        state.spinsLeft = Math.min(FREE_SPINS_TOTAL, state.spinsLeft + 1);
+      } else {
+        state.spinsLeft = Math.max(0, state.spinsLeft - 1);
+        if (outcome.category === "cash" && outcome.claimable) {
+          triggerConfetti();
+          if (outcome.rarity === "legendary") setTimeout(triggerConfetti, 400);
+        }
+      }
+      saveSpins();
+
+      const entry = {
+        resultRef: ref,
+        outcomeId: outcome.id,
+        outcomeName: outcome.name,
+        amount: outcome.amount,
+        tierLabel: outcome.tierLabel,
+        rarity: outcome.rarity,
+        claimable: outcome.claimable,
+        status: "Recorded",
+        date: ts,
+      };
+      state.history.unshift(entry);
+      state.history = state.history.slice(0, 50);
+      saveHistory();
+      renderHistory();
+
+      const tierLabels = {
+        legendary: "!ג'קפוט גרנד",
+        mega: "!פרס מגה",
+        gold: "!פרס זהב",
+        premium: "!פרס פרימיום",
+        mystery: "!תיבת מסתורין",
+        bonus: "!סיבוב בונוס",
+        cash: "פרס מזומן",
+      };
+      if (outcome.category === "bonus") {
+        showToast("success", "סיבוב בונוס הוענק", "+1 סיבוב חינם נוסף ליתרה שלכם.");
+      } else if (outcome.claimable) {
+        showToast("success", tierLabels[outcome.rarity], outcome.amount !== null ? formatILS(outcome.amount) + " נרשם" : "פרס נרשם");
+      }
+
+      updateSpinsBadge();
+      openResultModal(outcome);
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // MODALS
+    // ─────────────────────────────────────────────────────────────────────
+    function openModal(id) { $("#" + id).classList.add("open"); }
+    function closeModal(id) { $("#" + id).classList.remove("open"); }
+
+    function openResultModal(outcome) {
+      const card = $("#resultModalCard");
+      const ref = state.currentRef;
+      const date = state.currentDate;
+      let iconBg, eyebrow, eyebrowColor, title, amount, desc;
+
+      if (outcome.category === "cash") {
+        const isJackpot = outcome.rarity === "legendary";
+        iconBg = "linear-gradient(135deg, #ffe7a8, #d4a017 50%, #8a5a00)";
+        eyebrow = "!ברכות";
+        eyebrowColor = "var(--gold)";
+        title = "זכיתם ב-";
+        amount = formatILS(outcome.amount);
+        desc = isJackpot
+          ? "תוצאה מאומתת נרשמה עבור חשבונכם. המשיכו כדי לסקור את התביעה והשלבים הבאים."
+          : "התוצאה שלכם נרשמה. המשיכו לסקירת תביעה כדי להתחיל אימות.";
+        card.innerHTML = `
+          <div class="modal-glow"></div>
+          <button class="modal-close" onclick="closeModal('resultModal')" aria-label="סגור התראה">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+          <div class="modal-icon-circle" style="background:${iconBg}">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a0f00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          </div>
+          <div class="modal-eyebrow" style="color:${eyebrowColor}">${eyebrow}</div>
+          <div style="margin-bottom:0.5rem; font-size:0.875rem; font-weight:600; letter-spacing:0.025em; color:var(--muted)">${title}</div>
+          <div class="modal-title text-gold-gradient" style="margin-bottom:0.25rem">${outcome.tierLabel}</div>
+          <div class="modal-amount">${amount}</div>
+          ${ref ? `<div class="modal-ref"><span style="opacity:0.7">ייחוס:</span> <span class="ref-value">${ref}</span>${date ? `<span style="margin-inline-start:0.5rem; opacity:0.5">· ${formatResultDate(date)}</span>` : ""}</div>` : ""}
+          <p class="modal-desc">${desc}</p>
+          <div class="modal-actions">
+            <button class="modal-btn primary" onclick="handleViewPrizeDetails()">פרטי הפרס</button>
+            <button class="modal-btn secondary" onclick="handleContinueFromResult()">המשך</button>
+          </div>
+        `;
+      } else if (outcome.category === "mystery") {
+        card.innerHTML = `
+          <div class="modal-glow"></div>
+          <button class="modal-close" onclick="closeModal('resultModal')" aria-label="סגור התראה">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+          <div class="modal-icon-circle" style="background:linear-gradient(135deg, #3a1d5b, #7a3dcc 50%, #3a1d5b)">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f3e8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="14" height="4" rx="1"/><path d="M5 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/><path d="M17 8h1.5a2.5 2.5 0 0 1 2.5 2.5v3a2.5 2.5 0 0 1-2.5 2.5H17"/><path d="M5 12v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-6"/></svg>
+          </div>
+          <div class="modal-eyebrow" style="color:var(--purple)">!תיבת מסתורין נפתחה</div>
+          <div class="modal-title" style="margin-top:0.5rem">פרס הפתעה ממתין</div>
+          <p class="modal-desc">תוכן תיבת המסתורין נקבע על ידי מערכת המשחק ונחשף רק לאחר אישור. לחצו למטה כדי לחשוף את הפרס בפועל.</p>
+          ${ref ? `<div class="modal-ref"><span style="opacity:0.7">ייחוס:</span> <span class="ref-value">${ref}</span>${date ? `<span style="margin-inline-start:0.5rem; opacity:0.5">· ${formatResultDate(date)}</span>` : ""}</div>` : ""}
+          <div class="modal-actions">
+            <button class="modal-btn purple" onclick="handleRevealMystery()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline; margin-inline-end:0.375rem; vertical-align:-3px"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.288L12 21l1.9-5.8a2 2 0 0 1 1.288-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.288-1.288Z"/></svg>
+              חשפו את הפרס שלי
+            </button>
+            <button class="modal-btn secondary" onclick="closeModal('resultModal')">המשך</button>
+          </div>
+        `;
+      } else {
+        // bonus
+        card.innerHTML = `
+          <div class="modal-glow"></div>
+          <button class="modal-close" onclick="closeModal('resultModal')" aria-label="סגור התראה">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+          <div class="modal-icon-circle" style="background:linear-gradient(135deg, #0f5b46, #1bb78a 50%, #0f5b46)">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d9fff0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+          </div>
+          <div class="modal-eyebrow" style="color:var(--emerald)">!סיבוב בונוס הוענק</div>
+          <div class="modal-title" style="margin-top:0.5rem">+1 סיבוב חינם</div>
+          <p class="modal-desc">סיבוב בונוס נוסף לחשבונכם. השתמשו בו עכשיו כדי לנסות שוב את פרסי הכותרת.</p>
+          ${ref ? `<div class="modal-ref"><span style="opacity:0.7">ייחוס:</span> <span class="ref-value">${ref}</span>${date ? `<span style="margin-inline-start:0.5rem; opacity:0.5">· ${formatResultDate(date)}</span>` : ""}</div>` : ""}
+          <div class="modal-actions">
+            <button class="modal-btn emerald" onclick="handleSpinAgain()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline; margin-inline-end:0.375rem; vertical-align:-3px"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+              סובב שוב (חינם)
+            </button>
+            <button class="modal-btn secondary" onclick="closeModal('resultModal')">המשך</button>
+          </div>
+        `;
+      }
+      openModal("resultModal");
+    }
+
+    function handleViewPrizeDetails() {
+      closeModal("resultModal");
+      openDetailModal(state.currentOutcome);
+    }
+    function handleContinueFromResult() {
+      closeModal("resultModal");
+      if (state.currentOutcome && state.currentOutcome.claimable) {
+        setTimeout(() => openClaimNotif(state.currentOutcome), 350);
+      }
+    }
+    function handleRevealMystery() {
+      closeModal("resultModal");
+      openDetailModal(state.currentOutcome);
+    }
+    function handleSpinAgain() {
+      closeModal("resultModal");
+      document.getElementById("wheel").scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    function openDetailModal(outcome) {
+      const card = $("#detailModalCard");
+      const ref = state.currentRef;
+      const date = state.currentDate;
+      card.innerHTML = `
+        <div class="modal-glow"></div>
+        <button class="modal-close" onclick="closeModal('detailModal')" aria-label="סגור">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.25rem 0.75rem; border-radius:999px; border:1px solid var(--border-gold); background:rgba(212,160,23,0.05); font-size:11px; font-weight:600; letter-spacing:0.025em; color:var(--gold); margin-bottom:0.75rem;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          תוצאה מאומתת
+        </div>
+        <h3 class="modal-title">${outcome.tierLabel}</h3>
+        <div class="modal-amount text-gold-gradient" style="margin-top:0.25rem">${outcome.amount !== null ? formatILS(outcome.amount) : outcome.name}</div>
+        <p class="modal-desc" style="text-align:start">${outcome.descriptor}</p>
+        <div style="margin-top:1.25rem; padding:1rem; border-radius:1rem; border:1px solid var(--border); background:rgba(11,13,26,0.4); font-size:0.875rem; text-align:start">
+          ${detailRow("מספר ייחוס", ref || "ממתין לאימות", true)}
+          ${detailRow("תאריך", date ? formatResultDate(date) : "—")}
+          ${detailRow("שיעור זכייה", `${Math.round(outcome.rate * 100)}%`)}
+          ${detailRow("זכאות", "18+ · זהות ותחום שיפוט מאומתים בעת התביעה")}
+        </div>
+        <div style="margin-top:1.25rem; padding:0.75rem; border-radius:0.75rem; border:1px solid rgba(27,183,138,0.30); background:rgba(27,183,138,0.05); display:flex; gap:0.5rem; font-size:0.75rem; color:var(--muted); text-align:start">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1bb78a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:0.125rem"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span>התוצאה הזו נרשמה. סטטוס התביעה עובר מ-<strong style="color:var(--fg)">נרשם</strong> ← <strong style="color:var(--fg)">הוגש</strong> ← <strong style="color:var(--fg)">שולם</strong> לפי השלמת האימות.</span>
+        </div>
+        <div class="modal-actions">
+          ${outcome.claimable ? `<button class="modal-btn primary" onclick="handleProceedToClaim()">תבעו את הפרס שלי →</button>` : `<div style="flex:1; display:flex; align-items:center; justify-content:center; gap:0.5rem; padding:0.75rem 1.5rem; border-radius:999px; border:1px solid var(--border); background:rgba(138,143,163,0.10); color:var(--muted); font-size:0.875rem; font-weight:500;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>לא ניתן לתביעה</div>`}
+          <button class="modal-btn secondary" onclick="closeModal('detailModal')">סגור</button>
+        </div>
+      `;
+      openModal("detailModal");
+    }
+    function detailRow(label, value, mono) {
+      return `<div style="display:flex; justify-content:space-between; gap:0.75rem; padding:0.375rem 0; align-items:flex-start;"><span style="color:var(--muted)">${label}</span><span dir="${mono ? "ltr" : "rtl"}" style="text-align:start; color:var(--fg); ${mono ? "font-family:ui-monospace,monospace; font-size:0.75rem" : ""}">${value}</span></div>`;
+    }
+
+    function handleProceedToClaim() {
+      closeModal("detailModal");
+      openClaimDetails(state.currentOutcome);
+    }
+
+    function openClaimNotif(outcome) {
+      const card = $("#claimNotifCard");
+      const ref = state.currentRef;
+      const date = state.currentDate;
+      card.innerHTML = `
+        <div class="modal-glow" style="background:radial-gradient(60% 50% at 50% 0%, rgba(212,160,23,0.16), transparent 70%)"></div>
+        <button class="modal-close" onclick="closeModal('claimNotifModal')" aria-label="סגור התראה">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="modal-icon-circle" style="background:linear-gradient(135deg, #ffe7a8, #d4a017 50%, #8a5a00)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a0f00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <div class="modal-eyebrow" style="color:var(--gold)">נרשם · ממתין לתביעה</div>
+        <h3 class="modal-title" style="margin-top:0.5rem; font-size:1.5rem; line-height:1.3; text-wrap:balance">הפרס שלך מוכן לסקירת תביעה</h3>
+        <div style="margin-top:0.75rem; padding:1rem; border-radius:1rem; border:1px solid var(--border-gold); background:rgba(212,160,23,0.05)">
+          <div style="font-size:11px; font-weight:600; letter-spacing:0.025em; color:var(--muted)">פרס מאומת</div>
+          <div class="modal-amount text-gold-gradient" style="margin-top:0.125rem">${outcome.amount !== null ? formatILS(outcome.amount) : outcome.name}</div>
+          ${ref ? `<div style="margin-top:0.5rem; font-size:0.75rem; color:var(--muted)">ייחוס <span style="font-family:ui-monospace,monospace; color:var(--fg); direction:ltr; display:inline-block">${ref}</span>${date ? `<span style="margin-inline-start:0.5rem; opacity:0.5">· ${formatResultDate(date)}</span>` : ""}</div>` : ""}
+        </div>
+        <p class="modal-desc">התוצאה שלכם נרשמה. סקרו את דרישות הזכאות והאימות כדי להמשיך בתביעה.</p>
+        <div class="modal-actions">
+          <button class="modal-btn primary" onclick="handleClaimFromNotif()">תבעו את הפרס שלי →</button>
+          <button class="modal-btn secondary" onclick="closeModal('claimNotifModal')">המשך</button>
+        </div>
+        <div style="margin-top:1rem; display:flex; gap:0.375rem; font-size:11px; color:var(--muted); justify-content:center">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:0.125rem"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span>סטטוס: <strong style="color:var(--fg)">נרשם</strong>. טרם החל תהליך תשלום.</span>
+        </div>
+      `;
+      openModal("claimNotifModal");
+    }
+    function handleClaimFromNotif() {
+      closeModal("claimNotifModal");
+      openClaimDetails(state.currentOutcome);
+    }
+
+    function openClaimDetails(outcome) {
+      state.claimModalOutcome = outcome;
+      const ref = state.currentRef;
+      const date = state.currentDate;
+      const card = $("#claimDetailsCard");
+      const ctx = { outcome, resultRef: ref, resultDate: date };
+
+      const channelsHtml = [
+        { id: "email", label: "תמיכה באימייל", value: SUPPORT_EMAIL, hint: "תיבת תביעות מאומתת · משה", verified: true,
+          helpText: "פותח את לקוח האימייל עם הודעה מוכנה מראש הכוללת את הפרס, מספר הייחוס והתאריך — ממוענת לתיבת התמיכה המאומתת של משה.",
+          actionLabel: "חיבור אימייל" },
+        { id: "whatsapp", label: "תמיכה ב-WhatsApp", value: SUPPORT_WHATSAPP_DISPLAY, hint: "WhatsApp מאומת · משה", verified: true,
+          helpText: "פותח את WhatsApp עם הודעת תביעה מוכנה מראש מוכנה לשליחה למספר המאומת של משה. עובד בנייד וב-WhatsApp Web.",
+          actionLabel: "שלח ב-WhatsApp" },
+        { id: "telegram", label: "תמיכה ב-Telegram", value: "@" + SUPPORT_TELEGRAM_HANDLE, hint: "Telegram מאומת · משה", verified: true,
+          helpText: "פותח צ'אט Telegram עם המשתמש המאומת של משה. לחצו על \"העתק\" מתחת לכרטיס כדי להעתיק את הפרטים, ולאחר מכן הדביקו בצ'אט.",
+          actionLabel: "פתח Telegram" },
+        { id: "portal", label: "פורטל תביעות רשמי", value: "ממתין לכתובת מאומתת", hint: "פורטל הגשה מאובטח", verified: false,
+          helpText: "קישור ישיר לפורטל הגשת התביעות הרשמי, כאשר קיים. ממתין לכתובת מאומתת — לא נעשה שימוש בקישור מומצא.",
+          actionLabel: "פתח פורטל" },
+      ].map(ch => {
+        const channelIconSvg = ch.id === "email" ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>'
+          : ch.id === "whatsapp" ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>'
+          : ch.id === "telegram" ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.242-1.865-.442-.752-.244-1.349-.374-1.297-.789.027-.216.324-.437.89-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>';
+        const badge = ch.verified
+          ? `<span class="verified-badge"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>מאומת</span>`
+          : `<span class="pending-badge">ממתין</span>`;
+        const href = ch.verified ? buildChannelHref(ch.id, ctx) : null;
+        const actionLabel = ch.id === "email" ? "חיבור אימייל"
+          : ch.id === "whatsapp" ? "שלח ב-WhatsApp"
+          : ch.id === "telegram" ? "פתח Telegram"
+          : "פתח פורטל";
+        const copyBtn = (ch.id === "telegram" && ch.verified) ? `<button class="copy-btn" onclick="copyClaimMessage(event)" aria-label="העתקת הודעת תביעה ללוח"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>העתק</button>` : "";
+        const tag = ch.verified ? "a" : "div";
+        const hrefAttr = ch.verified ? `href="${href}" ${href.startsWith("http") ? 'target="_blank" rel="noopener noreferrer"' : ""}` : "";
+        const onClickAttr = ch.verified ? `onclick="handleChannelClick('${ch.id}', event)"` : "";
+        return `
+          <div class="claim-channel-card ${ch.id} ${ch.verified ? "verified" : "unverified"}">
+            <div class="row">
+              <div class="icon-tile">${channelIconSvg}</div>
+              <div class="body">
+                <div class="row2"><span class="label">${ch.label}</span>${badge}</div>
+                <div class="hint">${ch.hint}</div>
+                <div class="value">${ch.value}</div>
+              </div>
+            </div>
+            <p class="help">${ch.helpText}</p>
+            <div class="actions">
+              <${tag} class="channel-btn" ${hrefAttr} ${onClickAttr}>${actionLabel}</${tag}>
+              ${copyBtn}
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      card.innerHTML = `
+        <div class="modal-glow"></div>
+        <button class="modal-close" onclick="closeModal('claimDetailsModal')" aria-label="סגור">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div style="margin-bottom:1.25rem">
+          <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.25rem 0.75rem; border-radius:999px; border:1px solid var(--border-gold); background:rgba(212,160,23,0.05); font-size:11px; font-weight:600; letter-spacing:0.025em; color:var(--gold); margin-bottom:0.5rem;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></svg>
+            סקירת תביעה
+          </div>
+          <h2 class="modal-title" style="font-size:1.5rem">תבעו את הפרס שלכם</h2>
+          <p style="margin-top:0.25rem; font-size:0.875rem; color:var(--muted)">התוצאה שלכם. הצעד הבא שלכם.</p>
+        </div>
+        <div class="claim-status-card">
+          <div class="claim-status-row">
+            <div>
+              <div class="claim-status-label">פרס מאומת</div>
+              <div class="claim-status-amount text-gold-gradient">${outcome.amount !== null ? formatILS(outcome.amount) : outcome.name}</div>
+              <div class="claim-status-tier">${outcome.tierLabel}</div>
+            </div>
+            <div class="claim-status-pill"><div class="label">סטטוס</div><div class="value">נרשם</div></div>
+          </div>
+          <div class="claim-cells">
+            <div class="claim-cell"><div class="label">מספר ייחוס</div><div class="value mono">${ref || "ממתין"}</div></div>
+            <div class="claim-cell"><div class="label">תאריך</div><div class="value">${date ? formatResultDate(date) : "—"}</div></div>
+            <div class="claim-cell"><div class="label">שיעור זכייה</div><div class="value">${Math.round(outcome.rate * 100)}%</div></div>
+          </div>
+        </div>
+        <h3 class="claim-section-title">איך תובעים — חמישה שלבים</h3>
+        <ol class="claim-steps">
+          <li class="claim-step"><span class="num">1</span><span>סקרו את התוצאה המאומתת המוצגת למעלה.</span></li>
+          <li class="claim-step"><span class="num">2</span><span>בדקו את דרישות הזכאות והאימות.</span></li>
+          <li class="claim-step"><span class="num">3</span><span>בחרו ערוץ תמיכה או תביעה זמין.</span></li>
+          <li class="claim-step"><span class="num">4</span><span>הגישו את המידע הנדרש דרך התהליך המוסמך.</span></li>
+          <li class="claim-step"><span class="num">5</span><span>עקבו אחר סטטוס התביעה עד להחלטה סופית מתועדת.</span></li>
+        </ol>
+        <div class="claim-info-row">
+          <div class="claim-info-card">
+            <div class="title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>זכאות</div>
+            <p class="body">18+ בלבד. אימות זהות ותחום שיפוט נדרשים לפני שחרור כל תשלום. תוצאות סיבוב בונוס אינן ניתנות לתביעה.</p>
+          </div>
+          <div class="claim-info-card">
+            <div class="title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>זמן עיבוד</div>
+            <p class="body">תביעות נסקרות תוך יום עסקים אחד לאחר אימות מלא. זכיות בסכומים גבוהים עשויות לדרוש זמן סקירה נוסף.</p>
+          </div>
+        </div>
+        <h3 class="claim-section-title">ערוצי תביעה זמינים</h3>
+        <div class="claim-channels-grid">${channelsHtml}</div>
+        <div class="claim-notice">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1bb78a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>כל ערוץ פותח את דלפק התביעות המאומת של משה עם הודעה מוכנה הכוללת את הפרס המאומת, הדרגה, מספר הייחוס והתאריך — כך שהתביעה שלכם מוכנה לפעולה בלחיצה אחת. פורטל התביעות הרשמי נשאר ממתין עד שתסופק כתובת הגשה מאובטחת.</span>
+        </div>
+        <div class="claim-terms">
+          <div class="title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>פרטיות ואבטחה</div>
+          <p>אנו לעולם לא אוספים סיסמאות, קודי אימות חד-פעמיים, או מידע אישי רגיש מיותר. רק את המינימום הנדרש לאימות זהות ועיבוד התביעה. קידומי פרסים כפופים לכללים רשמיים והיתרים ספציפיים לתחום השיפוט. אין צורך ברכישה. אסור היכן שאסור.</p>
+        </div>
+        <div class="claim-modal-actions">
+          <button class="modal-btn submit" disabled><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>הגשת תביעה</button>
+          <a href="#claim" class="modal-btn secondary" onclick="closeModal('claimDetailsModal')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline; margin-inline-end:0.375rem; vertical-align:-3px"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>צרו קשר</a>
+          <button class="modal-btn secondary" onclick="closeModal('claimDetailsModal')">סגור</button>
+        </div>
+        <p class="claim-modal-foot">הודעת אישור תופיע רק לאחר שתביעה הוגשה בהצלחה בפועל.</p>
+      `;
+      openModal("claimDetailsModal");
+    }
+
+    function handleChannelClick(channelId, ev) {
+      const ctx = { outcome: state.claimModalOutcome, resultRef: state.currentRef, resultDate: state.currentDate };
+      if (channelId === "email") showToast("success", "פותח את לקוח האימייל", "הודעה מוכנה מראש מוכנה לסקירה ושליחה למשה.");
+      else if (channelId === "whatsapp") showToast("success", "פותח את WhatsApp", "הודעת תביעה מוכנה מראש מוכנה לשליחה למשה.");
+      else if (channelId === "telegram") showToast("info", "פותח את Telegram", "לחצו על \"העתק\" כדי להעתיק את הפרטים, ולאחר מכן הדביקו בצ'אט.");
+      else if (channelId === "portal") showToast("info", "פותח את פורטל התביעות הרשמי", "תועברו לפורטל ההגשה המאובטח.");
+    }
+
+    function copyClaimMessage(ev) {
+      const ctx = { outcome: state.claimModalOutcome, resultRef: state.currentRef, resultDate: state.currentDate };
+      const message = buildClaimMessage(ctx);
+      const btn = ev.currentTarget;
+      const done = () => {
+        btn.classList.add("copied");
+        btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>הועתק';
+        setTimeout(() => {
+          btn.classList.remove("copied");
+          btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>העתק';
+        }, 2200);
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(message).then(done).catch(() => fallbackCopy(message, done));
+        } else {
+          fallbackCopy(message, done);
+        }
+      } catch (e) {
+        fallbackCopy(message, done);
+      }
+    }
+    function fallbackCopy(text, cb) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      if (cb) cb();
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // PRIZE LADDER RENDERING
+    // ─────────────────────────────────────────────────────────────────────
+    function rarityIcon(rarity) {
+      const icons = {
+        legendary: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>',
+        mega: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4a9bd6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>',
+        gold: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>',
+        premium: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4a9bd6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>',
+        mystery: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a86bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="14" height="4" rx="1"/><path d="M5 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/><path d="M17 8h1.5a2.5 2.5 0 0 1 2.5 2.5v3a2.5 2.5 0 0 1-2.5 2.5H17"/><path d="M5 12v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-6"/></svg>',
+        bonus: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1bb78a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>',
+        cash: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8fa3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>',
+      };
+      return icons[rarity] || icons.cash;
+    }
+
+    function renderPrizeLadder() {
+      const high = PRIZE_OUTCOMES.filter(o => o.amount !== null && o.amount >= 15000);
+      const supporting = PRIZE_OUTCOMES.filter(o => o.amount === null || o.amount < 15000);
+      $("#ladderTop").innerHTML = high.map((o, i) => prizeCardHtml(o, i, true)).join("");
+      $("#ladderBottom").innerHTML = supporting.map((o, i) => prizeCardHtml(o, i + 4, false)).join("");
+      $$(".prize-card").forEach(card => {
+        card.addEventListener("click", () => {
+          const id = card.dataset.id;
+          const outcome = PRIZE_OUTCOMES.find(o => o.id === id);
+          state.currentOutcome = outcome;
+          openDetailModal(outcome);
+        });
+      });
+    }
+
+    function prizeCardHtml(outcome, index, isHighValue) {
+      const numClass = isHighValue ? "high" : "";
+      const sparkle = (isHighValue && outcome.rarity === "legendary") ? '<div style="position:absolute; inset-inline-end:0.75rem; top:0.75rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse-glow"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.288L12 21l1.9-5.8a2 2 0 0 1 1.288-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.288-1.288Z"/></svg></div>' : "";
+      const mainContent = outcome.amount !== null
+        ? `<div class="amount"><span class="shekel">₪</span><span class="num">${outcome.amount.toLocaleString()}</span></div>`
+        : `<div class="name-row">${rarityIcon(outcome.rarity)}${outcome.name}</div>`;
+      return `
+        <button class="prize-card ${numClass} ${outcome.rarity}" data-id="${outcome.id}" type="button">
+          <div class="gradient-wash"></div>
+          ${sparkle}
+          <div class="content">
+            <div class="top-row">
+              <span class="tier">${outcome.tierLabel}</span>
+              <span class="rate">${Math.round(outcome.rate * 100)}% סיכוי</span>
+            </div>
+            <div class="amount-row">${mainContent}</div>
+            <p class="desc">${outcome.descriptor}</p>
+            <div class="footer-row">
+              <span class="tap-hint">${outcome.claimable ? "לחצו לפרטים" : "לא ניתן לתביעה"}</span>
+              <span class="details-cta">פרטים <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(180deg)"><polyline points="9 18 15 12 9 6"/></svg></span>
+            </div>
+          </div>
+        </button>
+      `;
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // CLAIM SECTION (STATIC CONTACT CARDS)
+    // ─────────────────────────────────────────────────────────────────────
+    function renderClaimSection() {
+      const channels = [
+        { id: "email", label: "תמיכה באימייל", value: SUPPORT_EMAIL, hint: "תיבת תביעות מאומתת · משה", verified: true,
+          helpText: "פותח את לקוח האימייל עם הודעה מוכנה מראש הכוללת את הפרס, מספר הייחוס והתאריך — ממוענת לתיבת התמיכה המאומתת של משה." },
+        { id: "whatsapp", label: "תמיכה ב-WhatsApp", value: SUPPORT_WHATSAPP_DISPLAY, hint: "WhatsApp מאומת · משה", verified: true,
+          helpText: "פותח את WhatsApp עם הודעת תביעה מוכנה מראש מוכנה לשליחה למספר המאומת של משה. עובד בנייד וב-WhatsApp Web." },
+        { id: "telegram", label: "תמיכה ב-Telegram", value: "@" + SUPPORT_TELEGRAM_HANDLE, hint: "Telegram מאומת · משה", verified: true,
+          helpText: "פותח צ'אט Telegram עם המשתמש המאומת של משה. לחצו על \"העתקת הודעה\" מתחת לכרטיס כדי להעתיק את הפרטים, ולאחר מכן הדביקו בצ'אט." },
+        { id: "portal", label: "פורטל תביעות רשמי", value: "ממתין לכתובת מאומתת", hint: "פורטל הגשה מאובטח", verified: false,
+          helpText: "קישור ישיר לפורטל הגשת התביעות הרשמי, כאשר קיים. ממתין לכתובת מאומתת — לא נעשה שימוש בקישור מומצא." },
+      ];
+      const actionLabel = (id) => id === "email" ? "חיבור ושליחה ←" : id === "whatsapp" ? "שליחת הודעה ←" : id === "telegram" ? "פתח צ'אט ←" : "פתח פורטל ←";
+      $("#claimGrid").innerHTML = channels.map(ch => {
+        const iconSvg = ch.id === "email" ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>'
+          : ch.id === "whatsapp" ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>'
+          : ch.id === "telegram" ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.242-1.865-.442-.752-.244-1.349-.374-1.297-.789.027-.216.324-.437.89-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>'
+          : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>';
+        const badge = ch.verified
+          ? '<span class="verified-badge"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>מאומת</span>'
+          : '<span class="pending-badge">ממתין</span>';
+        const ctx = { outcome: null, resultRef: null, resultDate: null };
+        const href = ch.verified ? buildChannelHref(ch.id, ctx) : null;
+        const tag = ch.verified ? "a" : "div";
+        const hrefAttr = ch.verified ? `href="${href}" ${href.startsWith("http") ? 'target="_blank" rel="noopener noreferrer"' : ""}` : "";
+        const onClickAttr = ch.verified ? `onclick="handleChannelClick('${ch.id}', event)"` : "";
+        return `
+          <${tag} class="contact-card ${ch.id} ${ch.verified ? "verified" : "unverified"}" ${hrefAttr} ${onClickAttr}>
+            <div class="top">
+              <div class="icon-tile">${iconSvg}</div>
+              ${badge}
+            </div>
+            <div class="hint">${ch.hint}</div>
+            <div class="label">${ch.label}</div>
+            <div class="value">${ch.value}</div>
+            <p class="help">${ch.helpText}</p>
+            <div class="action-label">${actionLabel(ch.id)}</div>
+          </${tag}>
+        `;
+      }).join("");
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // STATS + ACCEPTANCE GRID
+    // ─────────────────────────────────────────────────────────────────────
+    function renderStats() {
+      const stats = [
+        { icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>', value: "128K+", label: "מבקרים" },
+        { icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="14" height="4" rx="1"/><path d="M5 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/><path d="M17 8h1.5a2.5 2.5 0 0 1 2.5 2.5v3a2.5 2.5 0 0 1-2.5 2.5H17"/><path d="M5 12v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-6"/></svg>', value: '<span style="font-size:0.875rem; color:var(--muted)">₪</span>4.2M', label: "פרסים מושגים" },
+        { icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.288L12 21l1.9-5.8a2 2 0 0 1 1.288-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.288-1.288Z"/></svg>', value: '<span style="font-size:0.875rem; color:var(--muted)">₪</span><span class="text-gold-gradient">200K</span>', label: "ג'קפוט גרנד" },
+        { icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>', value: "18,432", label: "סיבובים היום" },
+      ];
+      $("#statsRow").innerHTML = stats.map(s => `
+        <div class="stat-card">
+          <div class="icon">${s.icon}</div>
+          <div class="value">${s.value}</div>
+          <div class="label">${s.label}</div>
+        </div>
+      `).join("");
+    }
+
+    function renderAcceptanceGrid() {
+      const items = [
+        "דגל ישראל בולט ומעוצב נכון",
+        "כל ארבעת פרסי ה-ILS בעלי הערך הגבוה גלויים",
+        "לגלגל יש בדיוק שמונה תוצאות שצוינו",
+        "מרכז הגלגל ניתן לקליק בשולחן העבודה ובנייד",
+        "קליק על המרכז מפעיל סיבוב תקף",
+        "הגלגל עוצר על התוצאה בפועל",
+        "התראת תוצאה מופיעה לאחר הסיבוב",
+        "תוצאות הניתנות לתביעה מובילות לפרטי התביעה הנכונים",
+        "כפתורי קשר פותחים רק יעדים מאומתים",
+        "כל כפתורי ההתראות עובדים ונגישים",
+        "מונה הסיבובים נשאר מדויק",
+        "כפילויות סיבובים ותביעות נמנעות",
+        "כל הסקשנים מוצגים נכון בנייד",
+        "מידע משפטי, זכאות ופרטיות נגיש",
+      ];
+      $("#acceptanceGrid").innerHTML = items.map(item => `
+        <div class="acceptance-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>${item}</span>
+        </div>
+      `).join("");
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // HISTORY
+    // ─────────────────────────────────────────────────────────────────────
+    function renderHistory() {
+      const c = $("#historyContent");
+      const resetBtn = $("#resetHistoryBtn");
+      if (state.history.length === 0) {
+        resetBtn.style.display = "none";
+        c.innerHTML = `
+          <div class="history-empty">
+            <div class="icon-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+            </div>
+            <h3>אין תוצאות עדיין</h3>
+            <p>לחצו על מרכז הגלגל למעלה כדי לרשום את הסיבוב הראשון שלכם. כל סיבוב שיושלם יופיע כאן עם מספר ייחוס ייחודי ותג סטטוס תביעה.</p>
+          </div>
+        `;
+        return;
+      }
+      resetBtn.style.display = "inline-flex";
+      const statusMeta = {
+        Recorded: { label: "נרשם", cls: "recorded" },
+        Submitted: { label: "הוגש", cls: "submitted" },
+        Paid: { label: "שולם", cls: "paid" },
+      };
+      const rarityIconHtml = (rarity) => {
+        const icons = {
+          legendary: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>',
+          mega: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4a9bd6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>',
+          gold: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>',
+          premium: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4a9bd6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>',
+          mystery: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a86bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="14" height="4" rx="1"/><path d="M5 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/><path d="M17 8h1.5a2.5 2.5 0 0 1 2.5 2.5v3a2.5 2.5 0 0 1-2.5 2.5H17"/><path d="M5 12v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-6"/></svg>',
+          bonus: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1bb78a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>',
+          cash: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8fa3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>',
+        };
+        return icons[rarity] || icons.cash;
+      };
+      const rowsHtml = state.history.map(e => {
+        const sm = statusMeta[e.status];
+        return `
+          <div class="history-row entry">
+            <div class="col-icon">${rarityIconHtml(e.rarity)}</div>
+            <div class="col-prize">
+              <div class="name">${e.outcomeName}</div>
+              <div class="ref">${e.resultRef}</div>
+            </div>
+            <div class="col-date">${formatResultDate(new Date(e.date))}</div>
+            <div class="col-status">
+              <span class="status-pill ${sm.cls}"><span class="dot"></span>${sm.label}</span>
+              ${e.amount !== null ? `<div class="history-amount">${formatILS(e.amount)}</div>` : ""}
+            </div>
+          </div>
+        `;
+      }).join("");
+      c.innerHTML = `
+        <div class="history-table">
+          <div class="history-row header">
+            <div class="col-icon">תוצאה</div>
+            <div class="col-prize">פרס</div>
+            <div class="col-date">תאריך</div>
+            <div class="col-status">סטטוס</div>
+          </div>
+          ${rowsHtml}
+          <div class="history-footer">
+            <span>${state.history.length} תוצאות נרשמו</span>
+            <span>סטטוס: <strong style="color:var(--emerald)">נרשם</strong> ← <strong style="color:var(--gold)">הוגש</strong> ← <strong style="color:var(--fg)">שולם</strong></span>
+          </div>
+        </div>
+      `;
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // CONFETTI
+    // ─────────────────────────────────────────────────────────────────────
+    function triggerConfetti() {
+      const layer = $("#confettiLayer");
+      const colors = ["#ffe7a8", "#d4a017", "#c33aa8", "#1bb78a", "#a86bff", "#ffffff"];
+      const pieces = [];
+      for (let i = 0; i < 60; i++) {
+        const piece = document.createElement("div");
+        piece.className = "confetti-piece";
+        const size = 6 + Math.random() * 8;
+        const left = Math.random() * 100;
+        const delay = Math.random() * 0.6;
+        const duration = 2.2 + Math.random() * 1.4;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.cssText = `left:${left}%; top:0; width:${size}px; height:${size * 0.4}px; background:${color}; box-shadow: 0 0 6px ${color}80; animation: confetti-fall ${duration}s ease-in ${delay}s forwards;`;
+        layer.appendChild(piece);
+        pieces.push(piece);
+      }
+      setTimeout(() => pieces.forEach(p => p.remove()), 4200);
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // TOAST
+    // ─────────────────────────────────────────────────────────────────────
+    function showToast(type, title, desc) {
+      const layer = $("#toastLayer");
+      const t = document.createElement("div");
+      t.className = "toast " + type;
+      t.innerHTML = `<div class="title">${title}</div>${desc ? `<div class="desc">${desc}</div>` : ""}`;
+      layer.appendChild(t);
+      setTimeout(() => {
+        t.style.opacity = "0";
+        t.style.transition = "opacity 0.3s";
+        setTimeout(() => t.remove(), 300);
+      }, 4000);
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // STORAGE
+    // ─────────────────────────────────────────────────────────────────────
+    function saveSpins() {
+      try { localStorage.setItem(SPINS_KEY, String(state.spinsLeft)); } catch (e) {}
+    }
+    function saveHistory() {
+      try { localStorage.setItem(HISTORY_KEY, JSON.stringify(state.history)); } catch (e) {}
+    }
+    function loadStorage() {
+      try {
+        const savedSpins = localStorage.getItem(SPINS_KEY);
+        if (savedSpins !== null) {
+          const n = parseInt(savedSpins, 10);
+          if (!Number.isNaN(n) && n >= 0 && n <= FREE_SPINS_TOTAL) state.spinsLeft = n;
+        }
+        const savedHistory = localStorage.getItem(HISTORY_KEY);
+        if (savedHistory) {
+          const parsed = JSON.parse(savedHistory);
+          if (Array.isArray(parsed)) state.history = parsed;
+        }
+      } catch (e) {}
+    }
+
+    function handleHistoryReset() {
+      state.history = [];
+      state.spinsLeft = FREE_SPINS_TOTAL;
+      saveHistory();
+      saveSpins();
+      updateSpinsBadge();
+      updateCenterButton();
+      renderHistory();
+      showToast("success", "ההיסטוריה נוקתה", "סיבובי ההדגמה שלכם אופסו ל-3.");
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // INIT
+    // ─────────────────────────────────────────────────────────────────────
+    function init() {
+      renderFlags();
+      renderWheel();
+      renderStats();
+      renderAcceptanceGrid();
+      renderPrizeLadder();
+      renderClaimSection();
+      loadStorage();
+      updateSpinsBadge();
+      updateCenterButton();
+      renderHistory();
+
+      // Center button
+      $("#centerButton").addEventListener("click", handleCenterClick);
+
+      // Mobile menu
+      const menuBtn = $("#menuBtn");
+      const menuOverlay = $("#mobileMenuOverlay");
+      const mobileMenu = $("#mobileMenu");
+      const menuCloseBtn = $("#menuCloseBtn");
+      function openMenu() { menuOverlay.classList.add("open"); mobileMenu.classList.add("open"); }
+      function closeMenu() { menuOverlay.classList.remove("open"); mobileMenu.classList.remove("open"); }
+      menuBtn.addEventListener("click", openMenu);
+      menuCloseBtn.addEventListener("click", closeMenu);
+      menuOverlay.addEventListener("click", closeMenu);
+      $$("#mobileNav a, #mobileCta").forEach(a => a.addEventListener("click", closeMenu));
+
+      // Header scroll
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) $("#siteHeader").classList.add("scrolled");
+        else $("#siteHeader").classList.remove("scrolled");
+      }, { passive: true });
+
+      // Reset history
+      $("#resetHistoryBtn").addEventListener("click", handleHistoryReset);
+
+      // Close modal on overlay click
+      $$(".modal-overlay").forEach(overlay => {
+        overlay.addEventListener("click", (ev) => {
+          if (ev.target === overlay) overlay.classList.remove("open");
+        });
+      });
+
+      // Esc to close any open modal
+      document.addEventListener("keydown", (ev) => {
+        if (ev.key === "Escape") $$(".modal-overlay.open").forEach(o => o.classList.remove("open"));
+      });
+    }
+
+    // Expose handlers used in inline onclick
+    window.closeModal = closeModal;
+    window.handleViewPrizeDetails = handleViewPrizeDetails;
+    window.handleContinueFromResult = handleContinueFromResult;
+    window.handleRevealMystery = handleRevealMystery;
+    window.handleSpinAgain = handleSpinAgain;
+    window.handleProceedToClaim = handleProceedToClaim;
+    window.handleClaimFromNotif = handleClaimFromNotif;
+    window.handleChannelClick = handleChannelClick;
+    window.copyClaimMessage = copyClaimMessage;
+    window.appState = state;
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>
